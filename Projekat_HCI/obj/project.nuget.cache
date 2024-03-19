@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Li6IM/iG/kBkzB+GGIWDcjayxDniYCp5IGKvd/aC3G4Js53HvxEq3UFq3fBAmO6WCHvNj2rjakm659iVTyZR2Q==",
+  "dgSpecHash": "5JhUSdfgvnCFk/NWX/Z87Mi+Y2mLEX/GiUheuN24LlHzPlnoo73lT9CBiWU+pHq24EvNfsn8GjnnEFVFUxnwCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Slavko\\Desktop\\Projekat_HCI\\Projekat_HCI.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Slavko\\Desktop\\ProjekatHCI\\Projekat_HCI\\Projekat_HCI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Slavko\\.nuget\\packages\\fontawesome5\\2.1.11\\fontawesome5.2.1.11.nupkg.sha512",
+    "C:\\Users\\Slavko\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\Slavko\\.nuget\\packages\\notification.wpf\\8.0.0\\notification.wpf.8.0.0.nupkg.sha512",
+    "C:\\Users\\Slavko\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

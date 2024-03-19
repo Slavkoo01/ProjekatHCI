@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Projekat_HCI.View.AdminView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projekat_HCI.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Border CornerRadius="50" BorderThickness="8" BorderBrush="Transparent" Width="1280" Height="720">
+        <Grid>
+            <Button Width="200" Height="100" Content="NAAAAAAaaazad" x:Name="Nazad" Click="Nazad_Click">
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

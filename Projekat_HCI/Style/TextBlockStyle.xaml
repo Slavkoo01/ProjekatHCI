@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="LogInTextBox" TargetType="TextBlock">
+
+        <Setter Property="Foreground" Value="{StaticResource DarkGray}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="Margin" Value="40,30,0,0"/>
+    </Style>
+    <Style x:Key="BlenderTextBlock" TargetType="TextBlock">
+
+        <Setter Property="Foreground" Value="#335A83"/>
+        <Setter Property="FontSize" Value="70"/>
+        <Setter Property="FontFamily" Value="Havletica"/>
+        <Setter Property="FontWeight" Value="ExtraBlack"/>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,69 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ToolBarGray -->
+    <SolidColorBrush x:Key="ToolBarGray" Color="#292929"/>
+
+    <!-- BacgroundColor -->
+    <SolidColorBrush x:Key="BacgroundColor" Color="#535353"/>
+
+    <!-- HighlightHoverGray -->
+    <SolidColorBrush x:Key="HighlightHoverGray" Color="#484848"/>
+
+    <!-- HighlightLetterWhitish -->
+    <SolidColorBrush x:Key="HighlightLetterWhitish" Color="#B4B4B4"/>
+
+    <!-- DefaultColorText -->
+    <SolidColorBrush x:Key="DefaultColorText" Color="#CDCDCD"/>
+
+    <!-- HighligtBlue -->
+    <SolidColorBrush x:Key="HighligtBlue" Color="#4772B3"/>
+
+    <!-- BlenderLogoOrange -->
+    <SolidColorBrush x:Key="BlenderLogoOrange" Color="#E87D0D"/>
+
+    <!-- BlenderLogoBlue -->
+    <SolidColorBrush x:Key="BlenderLogoBlue" Color="#265787"/>
+
+    <!-- IconColors -->
+    <SolidColorBrush x:Key="IconColors" Color="#C58D63"/>
+
+    <!-- Redish -->
+    <SolidColorBrush x:Key="Redish" Color="#A9575F"/>
+
+    <!-- Greenish -->
+    <SolidColorBrush x:Key="Greenish" Color="#06AD86"/>
+
+    <!-- CellColor1 -->
+    <SolidColorBrush x:Key="CellColor1" Color="#434343"/>
+
+    <!-- CellColor2 -->
+    <SolidColorBrush x:Key="CellColor2" Color="#404040"/>
+
+    <!--Color Pallet I picked-->
+    <SolidColorBrush x:Key="Blumine" Color="#1a596b"/>
+    
+    <SolidColorBrush x:Key="Ming" Color="#3c7d8b"/>
+    <SolidColorBrush x:Key="LightMing" Color="#4F8792"/>
+    <SolidColorBrush x:Key="DarkMing" Color="#22464F"/>
+    
+    <SolidColorBrush x:Key="Gothic" Color="#71a2ad"/>
+    <SolidColorBrush x:Key="Alto" Color="#d9d9d9"/>
+    <SolidColorBrush x:Key="Jaffa" Color="#f28e36"/>
+    <SolidColorBrush x:Key="DarkGray" Color="DarkGray"/>
+    <SolidColorBrush x:Key="LightGray" Color="LightGray"/>
+    <SolidColorBrush x:Key="White" Color="White"/>
+
+    <Color x:Key="BlumineC">#1a596b</Color>
+    <Color x:Key="DarkBlumineC">#07181D</Color>
+    
+    <Color x:Key="MingC">#3c7d8b</Color>
+    <Color x:Key="LightMingC">#4F8792</Color>
+    <Color x:Key="DarkMingC">#22464F</Color>
+    
+    <Color x:Key="GothicC">#71a2ad</Color>
+    <Color x:Key="AltoC">#d9d9d9</Color>
+    <Color x:Key="JaffaC">#f28e36</Color>
+    
+
+</ResourceDictionary>
