@@ -1,5 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                    >
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Brushes.xaml"/>
@@ -15,10 +17,11 @@
                     <Border Width="25" Height="25"
                             CornerRadius="15"
                             Background="{TemplateBinding Background}"
-                            Margin="0,0,0,0">
+                            BorderBrush="Transparent"
+                            BorderThickness="{TemplateBinding BorderThickness}">
                         <ContentPresenter VerticalAlignment="Center"
                                           HorizontalAlignment="Center"
-                                          Margin="0,-5,0,0"/>
+                                          Margin="0,-8,0,0"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -27,12 +30,18 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Content" Value="_"/>
         <Setter Property="Foreground" Value="{StaticResource Alto}"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="FontWeight" Value="ExtraBlack"/>
         <Setter Property="FontFamily" Value="Montserrat"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource MinimizeButtonHighlight}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontWeight" Value="ExtraBlack"/>
+                <Setter Property="Margin" Value="0,-8,0,0"/>
+                <Setter Property="BorderThickness" Value="2"/>
                 <Setter Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect Color="{StaticResource MinimizeButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
@@ -49,11 +58,13 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Width="25" Height="25"
-                    CornerRadius="15"
-                    Background="{TemplateBinding Background}">
+                             CornerRadius="15"
+                             Background="{TemplateBinding Background}"
+                             BorderBrush="Transparent"
+                             BorderThickness="{TemplateBinding BorderThickness}">
                         <ContentPresenter VerticalAlignment="Center"
                                           HorizontalAlignment="Center"
-                                          Margin="0,-1,0,0"/>
+                                          Margin="0,-2,0,0"/>
                     </Border>
 
                 </ControlTemplate>
@@ -63,12 +74,14 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Content" Value="x"/>
         <Setter Property="Foreground" Value="{StaticResource Alto}"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="Montserrat"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource CloseButtonHighlight}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="BorderThickness" Value="2"/>
                 <Setter Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect Color="{StaticResource CloseButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
@@ -76,9 +89,9 @@
                 </Setter>
             </Trigger>
         </Style.Triggers>
-        
+
     </Style>
-    <!--LoginButton-->
+    <!--LogInButton-->
     <SolidColorBrush x:Key="LoginButtonHighlight" Color="#4F8792"/>
     <Color x:Key="LoginButtonHighlightC">#4F8792</Color>
     <Style x:Key="LoginButtonStyle" TargetType="Button">
@@ -86,8 +99,10 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Width="100" Height="40"
-                CornerRadius="10"
-                Background="{TemplateBinding Background}">
+                            CornerRadius="10"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="Transparent"
+                            BorderThickness="{TemplateBinding BorderThickness}">
                         <ContentPresenter VerticalAlignment="Center"
                                       HorizontalAlignment="Center"
                                       Margin="0,-1,0,0"/>
@@ -101,11 +116,18 @@
         <Setter Property="Content" Value="Log in"/>
         <Setter Property="Foreground" Value="{StaticResource Alto}"/>
         <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        
         <Setter Property="FontFamily" Value="Montserrat"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource LoginButtonHighlight}"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="BorderThickness" Value="3"/>
+
+
+
                 <Setter Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect Color="{StaticResource LoginButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
@@ -113,6 +135,245 @@
                 </Setter>
             </Trigger>
         </Style.Triggers>
+
+    </Style>
+
+
+    <!--LogOutButton-->
+    <Style x:Key="LogOutButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border BorderBrush="Transparent"
+                            BorderThickness="0"
+                            CornerRadius="10"
+                            Margin="20,10,0,0">
+                        <Grid>
+                            <fa5:SvgAwesome x:Name="LogOutIcon"
+                             Icon="Solid_SignOutAlt"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Left"
+                             Height="30"
+                             Foreground="{TemplateBinding Foreground}">
+                            </fa5:SvgAwesome>
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"
+                                              Margin="35,0,0,0">
+
+                            </ContentPresenter>
+
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource LoginButtonHighlight}"/>
+                            <Setter Property="Foreground" Value="{StaticResource LoginButtonHighlight}"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter TargetName="LogOutIcon" Property="Height" Value="28"/>
+                            <Setter TargetName="LogOutIcon" Property="Margin" Value="3,0,0,0"/>
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource LoginButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Content" Value="Log in"/>
+        <Setter Property="Foreground" Value="{StaticResource DarkGray}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+
+    <!--AddButton-->
+    <Style x:Key="AddButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="150" Height="50"
+                        CornerRadius="10"
+                        BorderBrush="Transparent"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="60*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <fa5:SvgAwesome x:Name="fa5Button"
+                                Icon="Solid_Plus"
+                                Height="30"
+                                Foreground="White"
+                                Margin="10,0,0,0">
+                                
+                            </fa5:SvgAwesome>
+                            <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Margin="-30,0,0,0"
+                                   Text="{TemplateBinding Content}"
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource LoginButtonHighlight}"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter TargetName="fa5Button" Property="Height" Value="25"/>
+                            <Setter TargetName="fa5Button" Property="Margin" Value="15,0,0,0"/>
+                            <Setter Property="BorderThickness" Value="5"/>
+
+
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource LoginButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{StaticResource Ming}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="{StaticResource Alto}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        
+
+    </Style>
+    <!--EditButton-->
+    <Style x:Key="EditButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="150" Height="50"
+                            CornerRadius="10"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="Transparent"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="60*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <fa5:SvgAwesome x:Name="fa5Button"
+                            Icon="Solid_Pen"
+                            Height="25"
+                            Foreground="White"
+                            Margin="10,0,0,0">
+
+                            </fa5:SvgAwesome>
+                            <TextBlock Grid.Column="1"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="-30,0,0,0"
+                               Text="{TemplateBinding Content}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource LoginButtonHighlight}"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter TargetName="fa5Button" Property="Height" Value="23"/>
+                            <Setter TargetName="fa5Button" Property="Margin" Value="15,0,0,0"/>
+
+                            <Setter Property="BorderThickness" Value="5"/>
+                            
+
+
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource LoginButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{StaticResource Ming}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="{StaticResource Alto}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+
+    </Style>
+    <!--DeleteButton-->
+    <Style x:Key="DeleteButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="150" Height="50"
+                            CornerRadius="10"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="Transparent"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="60*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <fa5:SvgAwesome x:Name="fa5Button"
+                            Icon="Solid_Trash"
+                            Height="26"
+                            Foreground="White"
+                            Margin="10,0,0,0">
+
+                            </fa5:SvgAwesome>
+                            <TextBlock Grid.Column="1"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Margin="-30,0,0,0"
+                               Text="{TemplateBinding Content}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource LoginButtonHighlight}"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter TargetName="fa5Button" Property="Height" Value="25"/>
+                            <Setter TargetName="fa5Button" Property="Margin" Value="15,0,0,0"/>
+                            <Setter Property="BorderThickness" Value="5"/>
+
+
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource LoginButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{StaticResource Ming}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="{StaticResource Alto}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
 
     </Style>
 </ResourceDictionary>

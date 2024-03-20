@@ -13,7 +13,8 @@
  WindowStartupLocation="CenterScreen"
  MouseDown="Window_MouseDown"
  Background="Transparent"
- AllowsTransparency="True">
+ AllowsTransparency="True"
+ Icon ="pack://application:,,,/Images/blenderIcon.ico">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -46,7 +47,8 @@
                     <!--UpperGrid Close and MinimizeButtons-->
                     <Button x:Name="btnMinimize" Click="btnMinimize_Click"
                             Style="{StaticResource MinimizeButtonStyle}"
-                            Grid.Column="1"/>
+                            Grid.Column="1"
+                            Margin="-3,0,0,0"/>
                     <Button x:Name="btnClose" Click="btnClose_Click"
                             Style="{StaticResource CloseButtonStyle}"
                             Grid.Column="2"/>

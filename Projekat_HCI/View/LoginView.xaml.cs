@@ -34,7 +34,7 @@ namespace Projekat_HCI.View
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            _transitionControl.ParentWindow.ChangeContent(new AdminView(new TransitionControl(_transitionControl.ParentWindow)), AnimationManager.AnimationType.SlideUp);
+            _transitionControl.ParentWindow.ChangeContent(new AdminView(new TransitionControl(_transitionControl.ParentWindow)), AnimationManager.SlideAnimationType.SlideUp);
         }
     }
 }

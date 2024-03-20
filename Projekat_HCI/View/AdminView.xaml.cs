@@ -35,13 +35,13 @@ namespace Projekat_HCI.View
 
         
 
-        public void Nazad_Click(object sender, RoutedEventArgs e)
+        public void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
             var transControl = new TransitionControl(_transitionControl.ParentWindow);
             var screenOne = new LoginView(transControl);
-            _transitionControl.ParentWindow.ChangeContent(screenOne,AnimationManager.AnimationType.SlideDown);
+            _transitionControl.ParentWindow.ChangeContent(screenOne,AnimationManager.SlideAnimationType.SlideDown);
         }
 
-       
+        
     }
 }

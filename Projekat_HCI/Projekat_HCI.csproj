@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <None Remove="Images\blender.png" />
+    <None Remove="Images\BlenderIcon.ico" />
+    <None Remove="Images\blenderIcon48 .png" />
     <None Remove="Images\LazarArt2ExtendedFlipped.png" />
     <None Remove="Images\Logo.png" />
   </ItemGroup>
@@ -33,6 +35,13 @@
   <ItemGroup>
     <PackageReference Include="FontAwesome5" Version="2.1.11" />
     <PackageReference Include="Notification.Wpf" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\BlenderIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\blenderIcon48 .png" />
   </ItemGroup>
 
 </Project>

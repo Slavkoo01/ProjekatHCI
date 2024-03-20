@@ -13,23 +13,23 @@ namespace Projekat_HCI.ViewModel
 {
     public class AnimationManager
     {
+        public enum SlideAnimationType
+        {
+            SlideUp,
+            SlideDown,
+            SlideLeft,
+            SlideRight
+        }
+
+        private readonly Duration _animationDuration = new Duration(TimeSpan.FromSeconds(0.4));
         private readonly Canvas _transitionContainer;
-        private readonly Duration _animationDuration = new Duration(TimeSpan.FromSeconds(0.3));
 
         public AnimationManager(Canvas transitionContainer)
         {
             _transitionContainer = transitionContainer;
         }
 
-        public enum AnimationType
-        {
-            SlideLeft,
-            SlideDown,
-            SlideUp,
-            SlideRight
-        }
-
-        private DoubleAnimation CreateDoubleAnimation(double from, double to, EventHandler completedEventHandler)
+        public DoubleAnimation CreateDoubleAnimation(double from, double to, EventHandler completedEventHandler)
         {
             DoubleAnimation doubleAnimation = new DoubleAnimation(from, to, _animationDuration);
             if (completedEventHandler != null)
@@ -37,49 +37,76 @@ namespace Projekat_HCI.ViewModel
             return doubleAnimation;
         }
 
-        private void AnimateContent(UIElement newContent, UIElement oldContent, EventHandler completedEventHandler, AnimationType animationType)
+        public void SlideAnimation(UIElement newContent, UIElement oldContent, SlideAnimationType animationType, double width, double height, EventHandler completedEventHandler)
         {
-            DependencyProperty property = Canvas.LeftProperty;
             double startValue = 0;
+            DependencyProperty property = null;
 
             switch (animationType)
             {
-                case AnimationType.SlideLeft:
-                    startValue = Canvas.GetLeft(oldContent);
-                    break;
-                case AnimationType.SlideDown:
-                    startValue = Canvas.GetBottom(oldContent);
+                case SlideAnimationType.SlideUp:
+                    startValue = Canvas.GetTop(oldContent);
+                    Canvas.SetTop(newContent, startValue + height);
                     property = Canvas.TopProperty;
                     break;
-                case AnimationType.SlideUp:
+                case SlideAnimationType.SlideDown:
                     startValue = Canvas.GetTop(oldContent);
-                    property = Canvas.BottomProperty;
+                    Canvas.SetTop(newContent, startValue - height);
+                    property = Canvas.TopProperty;
                     break;
-                case AnimationType.SlideRight:
-                    startValue = Canvas.GetRight(oldContent);
+                case SlideAnimationType.SlideLeft:
+                    startValue = Canvas.GetLeft(oldContent);
+                    Canvas.SetLeft(newContent, startValue - width);
+                    property = Canvas.LeftProperty;
+                    break;
+                case SlideAnimationType.SlideRight:
+                    startValue = Canvas.GetLeft(oldContent);
+                    Canvas.SetLeft(newContent, startValue + width);
                     property = Canvas.LeftProperty;
                     break;
             }
 
+            _transitionContainer.Children.Add(newContent);
             if (double.IsNaN(startValue))
             {
                 startValue = 0;
             }
 
-            _transitionContainer.Children.Add(newContent);
-            DoubleAnimation outAnimation = CreateDoubleAnimation(startValue, startValue + (animationType == AnimationType.SlideLeft ? _transitionContainer.ActualWidth : _transitionContainer.ActualHeight), null);
-            DoubleAnimation inAnimation = CreateDoubleAnimation(startValue - (animationType == AnimationType.SlideLeft ? _transitionContainer.ActualWidth : _transitionContainer.ActualHeight), startValue, completedEventHandler);
+            DoubleAnimation outAnimation = null;
+            DoubleAnimation inAnimation = null;
+
+            switch (animationType)
+            {
+                case SlideAnimationType.SlideUp:
+                    outAnimation = CreateDoubleAnimation(startValue, startValue - height, null);
+                    inAnimation = CreateDoubleAnimation(startValue + height, startValue, completedEventHandler);
+                    break;
+                case SlideAnimationType.SlideDown:
+                    outAnimation = CreateDoubleAnimation(startValue, startValue + height, null);
+                    inAnimation = CreateDoubleAnimation(startValue - height, startValue, completedEventHandler);
+                    break;
+                case SlideAnimationType.SlideLeft:
+                    outAnimation = CreateDoubleAnimation(startValue, startValue - width, null);
+                    inAnimation = CreateDoubleAnimation(startValue + width, startValue, completedEventHandler);
+                    break;
+                case SlideAnimationType.SlideRight:
+                    outAnimation = CreateDoubleAnimation(startValue, startValue + width, null);
+                    inAnimation = CreateDoubleAnimation(startValue - width, startValue, completedEventHandler);
+                    break;
+            }
+
             oldContent.BeginAnimation(property, outAnimation);
             newContent.BeginAnimation(property, inAnimation);
         }
 
-        public void ChangeContent(UIElement newContent, AnimationType animationType)
+        public void ChangeContent(UIElement newContent, SlideAnimationType animationType)
         {
             if (_transitionContainer.Children.Count == 0)
             {
                 _transitionContainer.Children.Add(newContent);
                 return;
             }
+
             if (_transitionContainer.Children.Count == 1)
             {
                 _transitionContainer.IsHitTestVisible = false;
@@ -88,14 +115,16 @@ namespace Projekat_HCI.ViewModel
                 {
                     _transitionContainer.IsHitTestVisible = true;
                     _transitionContainer.Children.Remove(oldContent);
-                    if (oldContent is IDisposable disposable)
+                    if (oldContent is IDisposable)
                     {
-                        disposable.Dispose();
+                        (oldContent as IDisposable).Dispose();
                     }
                 };
-                AnimateContent(newContent, oldContent, onAnimationCompletedHandler, animationType);
+
+                SlideAnimation(newContent, oldContent, animationType, _transitionContainer.ActualWidth, _transitionContainer.ActualHeight, onAnimationCompletedHandler);
             }
         }
+
     }
 
 }

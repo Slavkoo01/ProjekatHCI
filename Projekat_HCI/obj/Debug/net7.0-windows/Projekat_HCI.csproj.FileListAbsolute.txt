@@ -41,3 +41,4 @@ C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\M
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\AdminView.baml
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\TransitionControl.g.cs
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\TransitionControl.baml
+C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\Style\DataGridStyle.baml

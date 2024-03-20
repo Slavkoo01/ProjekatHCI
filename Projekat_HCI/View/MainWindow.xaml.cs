@@ -28,13 +28,14 @@ namespace Projekat_HCI.View
         {
             InitializeComponent();
             _animationManager = new AnimationManager(TransitionContainer);
-            ChangeContent(new LoginView(new TransitionControl(this)), AnimationManager.AnimationType.SlideRight);
+            ChangeContent(new LoginView(new TransitionControl(this)), AnimationManager.SlideAnimationType.SlideLeft);
         }
 
-        public void ChangeContent(UIElement newContent, AnimationManager.AnimationType animationType)
+        public void ChangeContent(UIElement newContent, AnimationManager.SlideAnimationType animationType)
         {
             _animationManager.ChangeContent(newContent, animationType);
         }
+
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {

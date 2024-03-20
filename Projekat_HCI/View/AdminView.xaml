@@ -8,8 +8,54 @@
              d:DesignHeight="720" d:DesignWidth="1280">
     <Border CornerRadius="50" BorderThickness="8" BorderBrush="Transparent" Width="1280" Height="720">
         <Grid>
-            <Button Width="200" Height="100" Content="NAAAAAAaaazad" x:Name="Nazad" Click="Nazad_Click">
-            </Button>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="135"/>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="LogOutButton" Style="{StaticResource LogOutButtonStyle}" Grid.Column="1" Content="Log Out" Click="LogOutButton_Click" Margin="10,0,10,10"/>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="85*"/>
+                </Grid.ColumnDefinitions>
+                
+                <DataGrid x:Name="AdminDataGrid" Grid.Column="2"
+                          IsReadOnly="True" 
+                          Grid.Row="1" 
+                          Grid.ColumnSpan="3" 
+                          AutoGenerateColumns="False" 
+                          Margin="10,10,10,10" 
+                          Style="{StaticResource DataGridStyle}">
+                    <DataGrid.Columns>
+                        
+                      
+                        
+                        <DataGridTextColumn Header="Naslov" Width="21.45*" Binding="{Binding Naslov}" />
+                        <DataGridTextColumn Header="Autor" Width="21.45*" Binding="{Binding Autor}" />
+                        <DataGridTextColumn Header="Zanr" Width="14.3*" Binding="{Binding Zanr}" />
+
+                        
+
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel>
+                    <Button x:Name="AddButton" Content="Add" Margin="10,0,10,10" Style="{StaticResource AddButtonStyle}"/>
+
+                    <Button x:Name="EditButton" Content="Edit" Margin="10,0,10,10" Style="{StaticResource EditButtonStyle}"/>
+                    <Button x:Name="DeleteButton" Content="Delete" Margin="10,0,10,10" Style="{StaticResource DeleteButtonStyle}"/>
+
+                </StackPanel>
+            </Grid>
         </Grid>
     </Border>
 </UserControl>
+
