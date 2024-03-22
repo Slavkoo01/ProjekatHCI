@@ -12,6 +12,9 @@
     <None Remove="Images\blender.png" />
     <None Remove="Images\BlenderIcon.ico" />
     <None Remove="Images\blenderIcon48 .png" />
+    <None Remove="Images\defaultImage.png" />
+    <None Remove="Images\Defult.png" />
+    <None Remove="Images\defultImage.png" />
     <None Remove="Images\LazarArt2ExtendedFlipped.png" />
     <None Remove="Images\Logo.png" />
   </ItemGroup>
@@ -20,16 +23,15 @@
     <Content Include="Images\blender.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Defult.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\LazarArt2ExtendedFlipped.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Model\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="Projekat_HCI.View.AddView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projekat_HCI.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+                                                    <!--Width="1280" Height="720"-->
+    <Border CornerRadius="50" BorderThickness="7" BorderBrush="Transparent" Width="1280" Height="720">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="135"/>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="55*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Width="250">
+                    
+                    <Border Width="230" Height="230" 
+                            BorderThickness="7"
+                            BorderBrush="{StaticResource DarkGray}"
+                            Margin="0,17,0,0"
+                            Style="{StaticResource BorderImage}">
+
+                        <Grid>
+                            <Image Source="/Images/Defult.png" Stretch="Fill"/>
+                            <Grid x:Name="BevelFrameUp" Style="{StaticResource BevelFrameStyle}"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock Text="ID:"
+                               Style="{StaticResource LogInTextBox}"
+                               FontWeight="Medium"
+                               Margin="0,13,0,0"
+                               FontSize="18"/>
+                    
+                    <TextBox x:Name="IdTextBox" Style="{StaticResource EnterTextBoxStyle}" Width="250" Margin="0,5,0,0"/>
+                    
+                    <TextBlock Text="HyperLink:"
+                           Style="{StaticResource LogInTextBox}"
+                           FontWeight="Medium"
+                           Margin="0,20,0,0"
+                           FontSize="18"/>
+                    
+                    <TextBox x:Name="HyperLinkTextBox" Style="{StaticResource EnterTextBoxStyle}" Width="250" Margin="0,5,0,0"/>
+                    
+                    <TextBlock Text="Date Added:"
+                               Style="{StaticResource LogInTextBox}"
+                               FontWeight="Medium"
+                               Margin="0,20,0,0"
+                               FontSize="18"/>
+                    
+                    <TextBox x:Name="DateTextBox" Style="{StaticResource EnterTextBoxStyle}" Width="250" Margin="0,5,0,0"/>
+                    
+                    <Button Style="{StaticResource AddButtonStyle}" Content="Add"  Margin="0,20,0,0"/>
+                </StackPanel>
+
+
+                <RichTextBox Grid.Column="2" Margin="0,20,20,20"/>
+        
+
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

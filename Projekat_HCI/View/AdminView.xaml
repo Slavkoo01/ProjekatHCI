@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projekat_HCI.View"
+             xmlns:blenderManualViewModel="clr-namespace:Projekat_HCI.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <Border CornerRadius="50" BorderThickness="8" BorderBrush="Transparent" Width="1280" Height="720">
@@ -34,23 +35,39 @@
                           Grid.ColumnSpan="3" 
                           AutoGenerateColumns="False" 
                           Margin="10,10,10,10" 
+                          ItemsSource="{Binding BMData}"
                           Style="{StaticResource DataGridStyle}">
                     <DataGrid.Columns>
-                        
-                      
-                        
-                        <DataGridTextColumn Header="Naslov" Width="21.45*" Binding="{Binding Naslov}" />
-                        <DataGridTextColumn Header="Autor" Width="21.45*" Binding="{Binding Autor}" />
-                        <DataGridTextColumn Header="Zanr" Width="14.3*" Binding="{Binding Zanr}" />
-
-                        
-
+                        <!-- Kolona za prikaz slike -->
+                        <DataGridTemplateColumn  Header="Image" Width="30*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding ImagePath}" Width="150" Height="150" Stretch="Fill"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!-- Kolona za Hyperlink-a -->
+                        <DataGridTextColumn Header="Hyperlink Data" Binding="{Binding Name}" Width="25*"/>
+                     
+                        <!-- Kolona za datum -->
+                        <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded}" Width="25*"/>
+                       
+                        <!-- CheckBox za Brisanje -->
+                        <DataGridTemplateColumn Header="Delete" Width="15*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
+
+
+
+                    
                 </DataGrid>
                 <StackPanel>
-                    <Button x:Name="AddButton" Content="Add" Margin="10,0,10,10" Style="{StaticResource AddButtonStyle}"/>
-
-                    <Button x:Name="EditButton" Content="Edit" Margin="10,0,10,10" Style="{StaticResource EditButtonStyle}"/>
+                    <Button x:Name="AddButton" Content="Add" Margin="10,0,10,10" Style="{StaticResource AddButtonStyle}" Click="AddButton_Click"/>
                     <Button x:Name="DeleteButton" Content="Delete" Margin="10,0,10,10" Style="{StaticResource DeleteButtonStyle}"/>
 
                 </StackPanel>

@@ -42,7 +42,13 @@
                 </Setter.Value>
             </Setter>
         </Style>
-    
+    <Style x:Key="BorderImage" TargetType="Border">
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect ShadowDepth="0" Color="{StaticResource DarkBlumineC}" Opacity=".55" BlurRadius="40" RenderingBias="Quality" Direction="180"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
-   
+
 </ResourceDictionary>

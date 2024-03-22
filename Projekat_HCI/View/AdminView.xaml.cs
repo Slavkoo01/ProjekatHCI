@@ -22,15 +22,24 @@ namespace Projekat_HCI.View
     /// </summary>
     public partial class AdminView : UserControl
     {
+        private BlenderManualDataViewModel _blenderManualDataViewModel;
+        
+        TransitionControl _transitionControl;
         public AdminView()
         {
             InitializeComponent();
+            _blenderManualDataViewModel = new BlenderManualDataViewModel();
+            AdminDataGrid.DataContext = _blenderManualDataViewModel;
+            AdminDataGrid.ItemsSource = _blenderManualDataViewModel.BMData;
         }
-        TransitionControl _transitionControl;
+
         public AdminView(TransitionControl transitionControl)
         {
             InitializeComponent();
             _transitionControl = transitionControl;
+            _blenderManualDataViewModel = new BlenderManualDataViewModel(); // Initialize _blenderManualDataViewModel
+            AdminDataGrid.DataContext = _blenderManualDataViewModel;
+            AdminDataGrid.ItemsSource = _blenderManualDataViewModel.BMData;
         }
 
         
@@ -42,6 +51,9 @@ namespace Projekat_HCI.View
             _transitionControl.ParentWindow.ChangeContent(screenOne,AnimationManager.SlideAnimationType.SlideDown);
         }
 
-        
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            _transitionControl.ParentWindow.ChangeContent(new AddView(new TransitionControl(_transitionControl.ParentWindow)), AnimationManager.SlideAnimationType.SlideLeft);
+        }
     }
 }

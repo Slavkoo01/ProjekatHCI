@@ -15,13 +15,10 @@ using System.Windows.Shapes;
 
 namespace Projekat_HCI.View
 {
-    /// <summary>
-    /// Interaction logic for TransitionControl.xaml
-    /// </summary>
+
     public partial class TransitionControl : UserControl
     {
         public MainWindow ParentWindow { get; set; }
-        public TransitionControl currentScreen { get; set; }
         public TransitionControl(MainWindow _parent)
         {
             this.ParentWindow = _parent;
