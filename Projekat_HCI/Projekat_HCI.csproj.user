@@ -24,10 +24,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CustomElements\CustomToolBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Style\ComboBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Style\DataGridStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Style\GridStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Style\RichTextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Style\ToolBarStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AddView.xaml">

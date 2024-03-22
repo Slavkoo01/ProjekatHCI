@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projekat_HCI.View"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
                                                     <!--Width="1280" Height="720"-->
@@ -31,12 +32,13 @@
                     
                     <Border Width="230" Height="230" 
                             BorderThickness="7"
-                            BorderBrush="{StaticResource DarkGray}"
+                            CornerRadius="5"
+                            BorderBrush="{StaticResource DarkBlumine}"
                             Margin="0,17,0,0"
                             Style="{StaticResource BorderImage}">
 
                         <Grid>
-                            <Image Source="/Images/Defult.png" Stretch="Fill"/>
+                            
                             <Grid x:Name="BevelFrameUp" Style="{StaticResource BevelFrameStyle}"/>
                         </Grid>
                     </Border>
@@ -46,30 +48,191 @@
                                Margin="0,13,0,0"
                                FontSize="18"/>
                     
-                    <TextBox x:Name="IdTextBox" Style="{StaticResource EnterTextBoxStyle}" Width="250" Margin="0,5,0,0"/>
+                    <TextBox x:Name="IdTextBox"
+                             BorderBrush="{StaticResource DarkBlumine}" 
+                             BorderThickness="5" 
+                             Style="{StaticResource EnterTextBoxStyle}"
+                             Width="250" 
+                             Margin="0,5,0,0"/>
                     
                     <TextBlock Text="HyperLink:"
                            Style="{StaticResource LogInTextBox}"
                            FontWeight="Medium"
                            Margin="0,20,0,0"
                            FontSize="18"/>
-                    
-                    <TextBox x:Name="HyperLinkTextBox" Style="{StaticResource EnterTextBoxStyle}" Width="250" Margin="0,5,0,0"/>
+
+                    <TextBox x:Name="HyperLinkTextBox" 
+                             BorderBrush="{StaticResource DarkBlumine}"
+                             BorderThickness="5" Style="{StaticResource EnterTextBoxStyle}" 
+                             Width="250" 
+                             Margin="0,5,0,0"/>
                     
                     <TextBlock Text="Date Added:"
                                Style="{StaticResource LogInTextBox}"
                                FontWeight="Medium"
                                Margin="0,20,0,0"
                                FontSize="18"/>
-                    
-                    <TextBox x:Name="DateTextBox" Style="{StaticResource EnterTextBoxStyle}" Width="250" Margin="0,5,0,0"/>
+
+                    <TextBox x:Name="DateTextBox" 
+                             BorderBrush="{StaticResource DarkBlumine}"
+                             BorderThickness="5" 
+                             Style="{StaticResource EnterTextBoxStyle}" 
+                             Width="250" 
+                             Margin="0,5,0,0"/>
                     
                     <Button Style="{StaticResource AddButtonStyle}" Content="Add"  Margin="0,20,0,0"/>
                 </StackPanel>
 
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ToolBar Grid.Row="0"
+                             x:Name="ToolBar"
+                             Visibility="Visible"
+                             Margin="-3,15,19,0"
+                             BorderThickness="5"
+                             Background="{StaticResource Blumine}"
+                             BorderBrush="{StaticResource DarkBlumine}"
+                             Style="{StaticResource ToolBarStyle}">
 
-                <RichTextBox Grid.Column="2" Margin="0,20,20,20"/>
-        
+                        <ToggleButton Name="BoldToggleButton"
+                                     Command="EditingCommands.ToggleBold"
+                                     ToolTip="Bold"
+                                     Background="{StaticResource Ming}"
+                                     Padding="10"
+                                     Margin="5 3 10 3">
+                            <fa5:SvgAwesome Height="15"
+                                         Width="15"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Foreground="{StaticResource Alto}"
+                                         Icon="Solid_Bold"/>
+                        </ToggleButton>
+
+                        
+
+                        <ToggleButton Name="ItalicToggleButton"
+                                     Command="EditingCommands.ToggleItalic"
+                                     ToolTip="Italic"
+                                     Background="{StaticResource Ming}"
+                                     Padding="10"
+                                     Margin="5 3 10 3">
+                            <fa5:SvgAwesome Height="15"
+                                         Width="15"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Foreground="#d3d3d3"
+                                         Icon="Solid_Italic" />
+                        </ToggleButton>
+
+                        
+
+                        <ToggleButton Name="UnderlineToggleButton"
+                                     Command="EditingCommands.ToggleUnderline"
+                                     ToolTip="UnderLine"
+                                     Background="{StaticResource Ming}"
+                                     Padding="10"
+                                     Margin="5 3 10 3">
+                            <fa5:SvgAwesome Height="15"
+                                         Width="15"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Foreground="{StaticResource Alto}"
+                                         Icon="Solid_Underline" />
+                        </ToggleButton>
+
+                        <Separator Background="{StaticResource Ming}" Width="2"/>
+
+                        <ComboBox Name="FontFamilyComboBox"
+                                 Width="150"
+                                 Height="30"
+                                 IsTextSearchCaseSensitive="False"
+                                 IsTextSearchEnabled="True"
+                                 SelectionChanged="FontFamilyComboBox_SelectionChanged" 
+                                 Background="#494546"
+                                 Foreground="#d3d3d3"
+                                 Padding="5"
+                                 BorderThickness="0"/>
+
+                        
+
+                        <ComboBox x:Name="TextColorComboBox"
+                                 Width="150"
+                                 Height="30"
+                                 IsTextSearchCaseSensitive="False"
+                                 IsTextSearchEnabled="True"
+                                 SelectionChanged="TextColorComboBox_SelectionChanged"
+                                 Background="#494546"
+                                 Foreground="#d3d3d3"
+                                 Padding="5"
+                                 BorderThickness="0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Width="16" Height="16" Margin="0, 0, 5, 0">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush  Color="{Binding ColorValue}"/>
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding ColorName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        
+
+                        <ComboBox Name="FontSizeComboBox"
+                                 Width="150"
+                                 Height="30"
+                                 IsEditable="False"
+                                 IsTextSearchCaseSensitive="False"
+                                 IsTextSearchEnabled="True"
+                                 SelectionChanged="FontSizeComboBox_SelectionChanged"
+                                 Background="#494546"
+                                 Foreground="#d3d3d3"
+                                 Padding="5"
+                                 BorderThickness="0"/>
+
+                        </ToolBar>
+                        <RichTextBox x:Name="RichTextBox"
+                                     Grid.Row="1"
+                                     Margin="0,20,20,20"
+                                     Style="{StaticResource AddEditRichTextBoxStyle}"
+                                     BorderBrush="{StaticResource DarkBlumine}"/>
+                    <Border Grid.Row="2" 
+                            Background="{StaticResource LightGray}"
+                            CornerRadius="5 5 50 5"
+                            Height="50"
+                            BorderBrush="{StaticResource DarkBlumine}"
+                            BorderThickness="7"
+                            Margin="0 -10 20 15">
+                       
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Word count:"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource DarkBlumine}"
+                                   FontFamily="Montserrat"
+                                   VerticalAlignment="Center"
+                                   Margin="5 1 0 0"/>
+                            
+                            <TextBlock x:Name="WordCountTextBox"
+                                       Text="0"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="{StaticResource DarkBlumine}"
+                                       FontFamily="Montserrat"
+                                       VerticalAlignment="Center"
+                                       Margin="1 3 0 0"/>
+                        </StackPanel>
+                    </Border>
+                    
+                </Grid>
+                
 
             </Grid>
         </Grid>

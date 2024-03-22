@@ -33,6 +33,19 @@ namespace Projekat_HCI.View
             _transitionControl = transitionControl;
         }
 
-     
+        private void FontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TextColorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void FontSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

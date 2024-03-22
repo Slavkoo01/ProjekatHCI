@@ -7,12 +7,16 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Style/Brushes.xaml"/>
+                <ResourceDictionary Source="Style/ToolBarStyle.xaml"/>
+                <ResourceDictionary Source="Style/ComboBoxStyle.xaml"/>
                 <ResourceDictionary Source="Style/BorderStyle.xaml"/>
                 <ResourceDictionary Source="Style/TextBlockStyle.xaml"/>
                 <ResourceDictionary Source="Style/ButtonStyle.xaml"/>
                 <ResourceDictionary Source="Style/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="Style/DataGridStyle.xaml"/>
                 <ResourceDictionary Source="Style/GridStyle.xaml"/>
+                <ResourceDictionary Source="Style/RichTextBox.xaml"/>
+                <ResourceDictionary Source="CustomElements/CustomToolBar.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         

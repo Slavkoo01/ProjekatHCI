@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="AddEditRichTextBoxStyle" TargetType="RichTextBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RichTextBox">
+                    <Border BorderThickness="7" 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="5"
+                            Background="{StaticResource LightGray}">
+                        <RichTextBox Background="{StaticResource LightGray}"/>
+
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
