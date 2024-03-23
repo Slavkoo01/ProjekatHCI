@@ -84,14 +84,14 @@
                         <Button x:Name="AddButton" Style="{StaticResource AddButtonStyle}" Content="Add" Margin="10 0 0 0" Click="AddButton_Click"/>
                     </StackPanel>
                 </StackPanel>
-                <Grid Grid.Column="1" Margin="-20 0 20 25">
+                <Grid Grid.Column="1" Margin="-80 0 20 25" Width="760">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    
-                    <customToolBar:CustomToolBar Margin="-10 15 15 0" Width="673"/>
+
+                    <customToolBar:CustomToolBar Margin="-10 15 15 0" Width="737"/>
                     
                     <RichTextBox x:Name="RichTextBox"
                                      Grid.Row="1"

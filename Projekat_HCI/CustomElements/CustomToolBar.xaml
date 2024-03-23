@@ -14,14 +14,16 @@
           BorderThickness="5"
           Background="{StaticResource Blumine}"
           BorderBrush="{StaticResource DarkBlumine}"
-          Style="{StaticResource ToolBarStyle}" Margin="0,0,0,0">
+          Style="{StaticResource ToolBarStyle}" Margin="1,0,0,0">
 
             <ToggleButton Name="BoldToggleButton"
                   Command="EditingCommands.ToggleBold"
                   ToolTip="Bold"
                   Background="{StaticResource Ming}"
                   Padding="10"
-                  Margin="5 3 10 3">
+                  Margin="10 3 5 3"
+                  Width="34"
+                  Height="34">
                 <fa5:SvgAwesome Height="15"
                       Width="15"
                       HorizontalAlignment="Center"
@@ -37,7 +39,9 @@
                   ToolTip="Italic"
                   Background="{StaticResource Ming}"
                   Padding="10"
-                  Margin="5 3 10 3">
+                  Margin="5 3 5 3"
+                  Width="34"
+                  Height="34">
                 <fa5:SvgAwesome Height="15"
                       Width="15"
                       HorizontalAlignment="Center"
@@ -47,13 +51,14 @@
             </ToggleButton>
 
 
-
             <ToggleButton Name="UnderlineToggleButton"
                   Command="EditingCommands.ToggleUnderline"
                   ToolTip="UnderLine"
                   Background="{StaticResource Ming}"
                   Padding="10"
-                  Margin="5 3 10 3">
+                  Margin="5 3 5 3"
+                  Width="34"
+                  Height="34">
                 <fa5:SvgAwesome Height="15"
                       Width="15"
                       HorizontalAlignment="Center"
@@ -63,28 +68,39 @@
             </ToggleButton>
 
             <Separator Background="{StaticResource Ming}" Width="2"/>
+            
+            <ComboBox Name="FontSizeComboBox"
+              Width="70"
+              Height="30"
+              Margin="7 0 8 0"
+              IsEditable="False"
+              IsTextSearchCaseSensitive="False"
+              IsTextSearchEnabled="True"
+              SelectionChanged="FontSizeComboBox_SelectionChanged"
+              Padding="5"
+              Style="{StaticResource FontSizeComboBoxStyle}"/>
 
             <ComboBox Name="FontFamilyComboBox"
-                      Width="150"
+                      Width="230"
                       Height="30"
-                      Margin="10 0 15 0"
+                      Margin="4 0 4 0"
                       IsTextSearchCaseSensitive="False"
                       IsTextSearchEnabled="True"
                       SelectionChanged="FontFamilyComboBox_SelectionChanged" 
                       Padding="5"
-                      Style="{StaticResource ComboBoxStyle}"/>
+                      Style="{StaticResource FontFamilyComboBoxStyle}"/>
 
 
 
             <ComboBox x:Name="TextColorComboBox"
-                      Width="150"
+                      Width="245"
                       Height="30"
                       IsTextSearchCaseSensitive="False"
                       IsTextSearchEnabled="True"
                       SelectionChanged="TextColorComboBox_SelectionChanged"
                       Padding="5"
-                      Margin="5 0 5 0"
-                      Style="{StaticResource ComboBoxStyle}">
+                      Margin="0 0 4 0"
+                      Style="{StaticResource FontColorComboBoxStyle}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -101,15 +117,6 @@
 
 
 
-            <ComboBox Name="FontSizeComboBox"
-              Width="150"
-              Height="30"
-              IsEditable="False"
-              IsTextSearchCaseSensitive="False"
-              IsTextSearchEnabled="True"
-              SelectionChanged="FontSizeComboBox_SelectionChanged"
-              Padding="5"
-              Style="{StaticResource ComboBoxStyle}"/>
 
         </ToolBar>
     </Grid>
