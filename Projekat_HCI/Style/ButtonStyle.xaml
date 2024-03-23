@@ -111,7 +111,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="{StaticResource Ming}"/>
+        <Setter Property="Background" Value="{StaticResource BlenderLogoOrange}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Content" Value="Log in"/>
         <Setter Property="Foreground" Value="{StaticResource Alto}"/>
@@ -122,7 +122,7 @@
         <Setter Property="Cursor" Value="Hand"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource LoginButtonHighlight}"/>
+                <Setter Property="Background" Value="{StaticResource Jaffa}"/>
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="BorderThickness" Value="3"/>
 
@@ -130,7 +130,7 @@
 
                 <Setter Property="Effect">
                     <Setter.Value>
-                        <DropShadowEffect Color="{StaticResource LoginButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
+                        <DropShadowEffect Color="{StaticResource LightJaffaC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>
@@ -200,7 +200,7 @@
                         CornerRadius="10"
                         BorderBrush="Transparent"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        Background="{TemplateBinding Background}">
+                        Background="{StaticResource DarkJaffa}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="40*"/>
@@ -225,7 +225,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{StaticResource LoginButtonHighlight}"/>
+                            <Setter Property="Background" Value="{StaticResource LightJaffa}"/>
                             <Setter Property="FontSize" Value="15"/>
                             <Setter TargetName="fa5Button" Property="Height" Value="25"/>
                             <Setter TargetName="fa5Button" Property="Margin" Value="15,0,0,0"/>
@@ -234,7 +234,7 @@
 
                             <Setter Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource LoginButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
+                                    <DropShadowEffect Color="{StaticResource LightJaffaC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -353,6 +353,67 @@
                             <Setter Property="FontSize" Value="15"/>
                             <Setter TargetName="fa5Button" Property="Height" Value="25"/>
                             <Setter TargetName="fa5Button" Property="Margin" Value="15,0,0,0"/>
+                            <Setter Property="BorderThickness" Value="5"/>
+
+
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="{StaticResource LoginButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{StaticResource Ming}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="{StaticResource Alto}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+    </Style>
+
+        <!--BackButton-->
+    <Style x:Key="BackButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="150" Height="50"
+                         CornerRadius="10"
+                         Background="{TemplateBinding Background}"
+                         BorderBrush="Transparent"
+                         BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="60*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <fa5:SvgAwesome x:Name="fa5Button"
+                         Icon="Solid_ArrowLeft"
+                         Height="26"
+                         Foreground="White"
+                         Margin="25,0,0,0">
+
+                            </fa5:SvgAwesome>
+                            <TextBlock Grid.Column="1"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Margin="-30,0,0,0"
+                            Text="{TemplateBinding Content}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource LoginButtonHighlight}"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter TargetName="fa5Button" Property="Height" Value="23"/>
+                            <Setter TargetName="fa5Button" Property="Margin" Value="27,0,0,0"/>
                             <Setter Property="BorderThickness" Value="5"/>
 
 

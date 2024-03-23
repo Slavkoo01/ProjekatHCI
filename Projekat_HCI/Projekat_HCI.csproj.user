@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CustomElements\CustomToolBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AddView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

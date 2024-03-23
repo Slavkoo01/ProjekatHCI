@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekat_HCI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,20 @@ namespace Projekat_HCI.View
         private void FontSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            var transControl = new TransitionControl(_transitionControl.ParentWindow);
+            var screenOne = new AdminView(transControl);
+            _transitionControl.ParentWindow.ChangeContent(screenOne, AnimationManager.SlideAnimationType.SlideRight);
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            var transControl = new TransitionControl(_transitionControl.ParentWindow);
+            var screenOne = new AdminView(transControl);
+            _transitionControl.ParentWindow.ChangeContent(screenOne, AnimationManager.SlideAnimationType.SlideRight);
         }
     }
 }

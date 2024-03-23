@@ -51,7 +51,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Padding="{TemplateBinding Padding}"
-                            CornerRadius="10,10,50,10">
+                            CornerRadius="50,10,50,50">
                         <Border.Background>
                             <SolidColorBrush Color="{StaticResource DarkBlumineC}"/>
                         </Border.Background>

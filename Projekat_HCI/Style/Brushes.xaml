@@ -49,12 +49,20 @@
     
     <SolidColorBrush x:Key="Gothic" Color="#71a2ad"/>
     <SolidColorBrush x:Key="Alto" Color="#d9d9d9"/>
+    
     <SolidColorBrush x:Key="Jaffa" Color="#f28e36"/>
+    <SolidColorBrush x:Key="DarkJaffa" Color="#F07D19"/>
+    <SolidColorBrush x:Key="LightJaffa" Color="#F59E5C"/>
+    
     <SolidColorBrush x:Key="DarkGray" Color="DarkGray"/>
     <SolidColorBrush x:Key="LightGray" Color="LightGray"/>
     <SolidColorBrush x:Key="White" Color="White"/>
 
     <SolidColorBrush x:Key="DarkBlumine" Color="#07181D"/>
+    <SolidColorBrush x:Key="LightLightBlumin" Color="#56868F"/>
+
+    <SolidColorBrush x:Key="Navy" Color="#14213D"/>
+    <Color x:Key="NavyC">#14213D</Color>
     
    
 
@@ -69,6 +77,8 @@
     <Color x:Key="GothicC">#71a2ad</Color>
     <Color x:Key="AltoC">#d9d9d9</Color>
     <Color x:Key="JaffaC">#f28e36</Color>
+    <Color x:Key="DarkJaffaC">#F07D19</Color>
+    <Color x:Key="LightJaffaC">#F59E5C</Color>
     
 
 </ResourceDictionary>

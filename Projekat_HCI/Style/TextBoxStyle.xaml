@@ -64,43 +64,46 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-    <Style x:Key="EnterTextBoxStyle" TargetType="TextBox">
-        <Setter Property="Background" Value="{StaticResource Blumine}"/>
+    
+        <Style x:Key="EnterTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="{StaticResource LightLightBlumin}"/>
         <Setter Property="BorderBrush" Value="{StaticResource DarkGray}"/>
-        <Setter Property="BorderThickness" Value="3"/>
         <Setter Property="Foreground" Value="{StaticResource Alto}"/>
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="MinHeight" Value="60"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect  BlurRadius="30" Opacity=".7" ShadowDepth="0" />
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
 
                     <Border x:Name ="border" Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="15">
-                        <TextBox 
+                            BorderThickness="3 2 3 5"
+                            CornerRadius="25 5 25 5">
+                        <TextBox x:Name="EnterTextBoxx"
                               Foreground="{StaticResource White}"
                               Background="Transparent"
                               CaretBrush="{StaticResource LightGray}"
-                              FontSize="18"
+                              FontSize="23"
                               FontFamily="Montserrat"
                               FontWeight="Medium"
-                              Height="30"
+                              Height="50"
                               VerticalAlignment="Center"
-                              Margin="0,5,0,0"
-                              Padding="20,2,0,0"
-                              BorderThickness="0,0,0,0"/>
+                              Padding="20,15,0,0"
+                              BorderThickness="0"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Ming}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Blumine}"/>
                         </Trigger>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource LightMing}"/>
+                        <Trigger SourceName="EnterTextBoxx" Property="IsFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Blumine}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

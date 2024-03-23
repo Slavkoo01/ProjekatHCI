@@ -5,15 +5,18 @@
     <SolidColorBrush x:Key="DarkMing" Color="#22464F"/>
 
     <Style x:Key="ToolBarStyle" TargetType="ToolBar">
+        <Setter Property="Background" Value="{StaticResource DarkMing}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DarkBlumine}" />
+        <Setter Property="Height" Value="55" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToolBar">
-                    <Border BorderBrush="{StaticResource DarkBlumine}"
-                            BorderThickness="7"
-                            CornerRadius="5"
-                            Height="55"
-                            Margin="3 0 2 0"
-                            Background="{StaticResource DarkMing}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="0 0 0 5"
+                            CornerRadius="3 3 10 10 "
+                            Height="{TemplateBinding Height}"
+                            Margin="{TemplateBinding Margin}">
                         <!-- Set the DockPanel as the ItemsPanel -->
                         <DockPanel IsItemsHost="True"/>
                     </Border>
