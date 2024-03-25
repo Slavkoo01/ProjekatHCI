@@ -21,46 +21,41 @@ namespace Projekat_HCI.View
     /// </summary>
     public partial class AddView : UserControl
     {
-        TransitionControl _transitionControl;
+        private static TransitionControl _transitionControl;
 
-        public AddView()
-        {
-            InitializeComponent();
-        }
+        //private AddViewModel _addViewModel;
+       
 
         public AddView(TransitionControl transitionControl)
         {
             InitializeComponent();
             _transitionControl = transitionControl;
+            
+            this.DataContext = new AddViewModel();
+            //IdTextBox.DataContext = _addViewModel;
+            //DateTextBox.DataContext = _addViewModel;
+            //BackButton.DataContext = _addViewModel;
+           // AddButton.DataContext = _addViewModel;
         }
 
-        private void FontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
-
-        private void TextColorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void FontSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        public static void GoBackAnimation()
         {
             var transControl = new TransitionControl(_transitionControl.ParentWindow);
             var screenOne = new AdminView(transControl);
             _transitionControl.ParentWindow.ChangeContent(screenOne, AnimationManager.SlideAnimationType.SlideRight);
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void ImageGrid_MouseEnter(object sender, MouseEventArgs e)
         {
-            var transControl = new TransitionControl(_transitionControl.ParentWindow);
-            var screenOne = new AdminView(transControl);
-            _transitionControl.ParentWindow.ChangeContent(screenOne, AnimationManager.SlideAnimationType.SlideRight);
+            DefaultImage.Height = 200;
+            DefaultImage.Width = 200;
+        }
+
+        private void ImageGrid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            DefaultImage.Height = 216;
+            DefaultImage.Width = 216;
         }
     }
 }

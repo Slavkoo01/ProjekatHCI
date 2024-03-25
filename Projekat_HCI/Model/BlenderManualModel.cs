@@ -9,17 +9,21 @@ namespace Projekat_HCI.Model
     class BlenderManualModel
     {
         public int? Id { get; set; }
-        public string? Name { get; set; }
+        public string? HyperLink { get; set; }
         public string? ImagePath { get; set; }
         public string? ContentPath { get; set; }
         public DateOnly? DateAdded { get; set; }
-        public BlenderManualModel(int? id, string? name, string? imagePath, string? contentPath, DateOnly? dateAdded)
+        public BlenderManualModel(int? id, string? hyperlink, string? imagePath, string? contentPath, DateOnly? dateAdded)
         {
             Id = id;
-            Name = name;
+            HyperLink = hyperlink;
             ImagePath = imagePath;
             ContentPath = contentPath;
             DateAdded = dateAdded;
+        }
+        public override string ToString()
+        {
+            return Id.ToString() + " " + HyperLink + " " + ImagePath + " " + ContentPath + " " + DateAdded.ToString();
         }
 
     }

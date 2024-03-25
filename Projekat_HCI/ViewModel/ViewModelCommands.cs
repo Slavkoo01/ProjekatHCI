@@ -11,32 +11,28 @@ namespace Projekat_HCI.ViewModel
     {
         //Fields
 
-        private readonly Action<object>? _executeAction;
+        private readonly Action<object>? _execute;
         //used encapsulate a method that is to pass a method as a parameter
 
-        private readonly Predicate<object>? _canExecuteAction;
+        private readonly Func<object, bool>? _canExecute;
         //used to see if the action can be executed
 
-        //Constructor
-        public ViewModelCommands(Action<object>? executeAction, Predicate<object>? canExecuteAction)
-        {
-            _executeAction = executeAction;
-            _canExecuteAction = canExecuteAction;
-        }
-
-        //Constructor to execute action because not all commands need to be validated
-        public ViewModelCommands(Action<object>? executeAction)
-        {
-            _executeAction = executeAction;
-            _canExecuteAction = null;
-        }
-
-        //Subscrieb or unsubscribe the Requery suggested event as needed
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
+        //Constructor
+        public ViewModelCommands(Action<object> execute, Func<object, bool> canExecute = null)
+        {
+            _execute = execute;
+            _canExecute = canExecute;
+        }
+
+        //Constructor to execute action because not all commands need to be validated
+     
+
+        //Subscrieb or unsubscribe the Requery suggested event as needed
         //RequerySuggested events occure when CommandMannager detects if the command execution condition has changed
 
 
@@ -44,12 +40,12 @@ namespace Projekat_HCI.ViewModel
         //we return the value of the delegate or the method that is going to be defined and delegated in the viewModel
         public bool CanExecute(object? parameter)
         {
-            return _canExecuteAction == null ? true: _canExecuteAction(parameter);
+            return _canExecute == null || _canExecute(parameter);
         }
         //We just execute the action, same way this will execute method which will be delegated in viewModel
         public void Execute(object? parameter)
         {
-            _executeAction(parameter);
+            _execute(parameter);
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Projekat_HCI.CustomElements
     /// </summary>
     public partial class CustomToolBar : UserControl
     {
+        
         public CustomToolBar()
         {
             InitializeComponent();

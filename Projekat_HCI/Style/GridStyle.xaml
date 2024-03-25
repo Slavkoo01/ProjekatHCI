@@ -8,7 +8,7 @@
                     <VisualBrush.Visual>
                         
                             <Grid Height="216" Width="216">
-                            <Image Source="/Images/Defult.png" Stretch="Fill" Height="216"/>
+                            
 
                                 <Polygon Points="0,0 216,0 208,7 8,7"
                                  Fill="White"
@@ -39,7 +39,7 @@
                         <VisualBrush>
                             <VisualBrush.Visual>
                                 <Grid Height="216" Width="216">
-                                    <Image Source="/Images/Defult.png" Stretch="Fill" Height="200" Width="200"/>
+                                    
                                     <Polygon Points="0,0 216,0 208,7 8,7"
                                          Fill="Black"
                                          Opacity=".5"

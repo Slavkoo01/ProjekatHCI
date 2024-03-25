@@ -6,12 +6,19 @@
              xmlns:local="clr-namespace:Projekat_HCI.View"
              xmlns:customToolBar="clr-namespace:Projekat_HCI.CustomElements"
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             xmlns:viewModels="clr-namespace:Projekat_HCI.ViewModel"
+             xmlns:views="clr-namespace:Projekat_HCI.View"
+            
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-                                                    <!--Width="1280" Height="720"-->
+             d:DesignHeight="720" d:DesignWidth="1280">
+            <UserControl.DataContext>
+                <viewModels:AddViewModel/>
+            </UserControl.DataContext>
+
     <Border CornerRadius="50" BorderThickness="7" BorderBrush="Transparent" Width="1280" Height="720">
         <Grid>
-            <Grid.RowDefinitions>
+            
+                <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -36,7 +43,17 @@
                             BorderBrush="{StaticResource DarkBlumine}"
                             Margin="0,17,0,0">
 
-                            <Grid>
+                            <Grid x:Name="ImageGrid" 
+                                  MouseEnter="ImageGrid_MouseEnter" 
+                                  MouseLeave="ImageGrid_MouseLeave">
+                                <Image x:Name="DefaultImage" 
+                                       Source="/Images/Defult.png" 
+                                       Stretch="Fill" 
+                                       Height="216" 
+                                       Width="216" 
+                                       Margin="-6 -6 0 0"/>
+
+
                                 <Grid x:Name="BevelFrameUp" Style="{StaticResource BevelFrameStyle}"/>
                             </Grid>
                         </Border>
@@ -51,9 +68,10 @@
                              BorderThickness="5" 
                              Style="{StaticResource EnterTextBoxStyle}"
                              Width="250" 
-                             Margin="0,5,0,0"/>
+                             Margin="0,5,0,0"
+                             Text="{Binding NewId,UpdateSourceTrigger=PropertyChanged}"/>
 
-                        <TextBlock Text="HyperLink:"
+                        <TextBlock Text="HyperLink"
                            Style="{StaticResource LogInTextBox}"
                            FontWeight="Medium"
                            Margin="0,20,0,0"
@@ -63,7 +81,8 @@
                              BorderBrush="{StaticResource DarkBlumine}"
                              BorderThickness="5" Style="{StaticResource EnterTextBoxStyle}" 
                              Width="250" 
-                             Margin="0,5,0,0"/>
+                             Margin="0,5,0,0"
+                             Text="{Binding NewHyperLink,UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Text="Date Added:"
                                Style="{StaticResource LogInTextBox}"
@@ -74,14 +93,24 @@
                         <TextBox x:Name="DateTextBox" 
                              BorderBrush="{StaticResource DarkBlumine}"
                              BorderThickness="5" 
+                             IsEnabled="False"
                              Style="{StaticResource EnterTextBoxStyle}" 
                              Width="250" 
-                             Margin="0,5,0,0"/>
+                             Margin="0,5,0,0"
+                             Text="{Binding NewDate,UpdateSourceTrigger=PropertyChanged}"/>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,30,0,0" HorizontalAlignment="Center">
-                        <Button x:Name="BackButton" Style="{StaticResource BackButtonStyle}" Content="Back" Margin="0 0 10 0" Click="BackButton_Click"/>
-                        <Button x:Name="AddButton" Style="{StaticResource AddButtonStyle}" Content="Add" Margin="10 0 0 0" Click="AddButton_Click"/>
+                        <Button x:Name="BackButton" 
+                                Style="{StaticResource BackButtonStyle}" 
+                                Content="Back" 
+                                Margin="0 0 10 0" 
+                                Command="{Binding BackCommand}"/>
+                        
+                        <Button x:Name="AddButton" 
+                                Style="{StaticResource AddButtonStyle}" 
+                                Content="Add" Margin="10 0 0 0" 
+                                Command="{Binding AddCommand}"/>
                     </StackPanel>
                 </StackPanel>
                 <Grid Grid.Column="1" Margin="-80 0 20 25" Width="760">

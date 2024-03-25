@@ -21,24 +21,25 @@
                     <ColumnDefinition Width="35"/>
                     <ColumnDefinition Width="25"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="LogOutButton" Style="{StaticResource LogOutButtonStyle}" Grid.Column="1" Content="Log Out" Click="LogOutButton_Click" Margin="10,0,10,10"/>
+                <Button x:Name="LogOutButton" Style="{StaticResource LogOutButtonStyle}" Grid.Column="1" Content="Log Out" Margin="10,0,10,30"  Command="{Binding LogOutCommand}"/>
                 <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
                     <Button x:Name="DeleteButton" Content="Delete" Margin="10,0,10,10" Style="{StaticResource DeleteButtonStyle}"/>
-                    <Button x:Name="AddButton" Content="Add" Margin="10,0,10,10" Style="{StaticResource AddButtonStyle}" Click="AddButton_Click"/>
-
+                    <Button x:Name="AddButton" Content="Add" Margin="10,0,10,10" Style="{StaticResource AddButtonStyle}" Command="{Binding AddCommand}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="2">
-               
-                
+
+
                 <DataGrid x:Name="AdminDataGrid" Grid.Column="2"
                           IsReadOnly="True" 
                           Grid.Row="1" 
                           Grid.ColumnSpan="3" 
                           AutoGenerateColumns="False" 
                           Margin="25,10,25,25" 
-                          ItemsSource="{Binding BMData}"
-                          Style="{StaticResource DataGridStyle}">
+                         ItemsSource="{Binding BMData}"
+                          Style="{StaticResource DataGridStyle}" SelectionChanged="AdminDataGrid_SelectionChanged">
+
+
                     <DataGrid.Columns>
                         <!-- Kolona za prikaz slike -->
                         <DataGridTemplateColumn  Header="Image" Width="30*">
@@ -49,7 +50,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <!-- Kolona za Hyperlink-a -->
-                        <DataGridTextColumn Header="Hyperlink Data" Binding="{Binding Name}" Width="25*"/>
+                        <DataGridTextColumn Header="Hyperlink Data" Binding="{Binding HyperLink}" Width="25*"/>
                      
                         <!-- Kolona za datum -->
                         <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded}" Width="25*"/>
@@ -68,7 +69,7 @@
 
                     
                 </DataGrid>
-               
+                
             </Grid>
         </Grid>
     </Border>

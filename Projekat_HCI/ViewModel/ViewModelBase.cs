@@ -11,7 +11,7 @@ namespace Projekat_HCI.ViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void OnPropertChanged(string propertyName)
+        public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

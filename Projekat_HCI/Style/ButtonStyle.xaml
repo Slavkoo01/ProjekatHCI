@@ -149,6 +149,7 @@
                             CornerRadius="10"
                             Margin="20,10,0,0">
                         <Grid>
+                            <Rectangle Fill="Transparent"/>
                             <fa5:SvgAwesome x:Name="LogOutIcon"
                              Icon="Solid_SignOutAlt"
                              VerticalAlignment="Center"

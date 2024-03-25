@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,38 +23,37 @@ namespace Projekat_HCI.View
     /// </summary>
     public partial class AdminView : UserControl
     {
-        private BlenderManualDataViewModel _blenderManualDataViewModel;
+        private AdminViewModel _adminViewModel;
         
-        TransitionControl _transitionControl;
-        public AdminView()
-        {
-            InitializeComponent();
-            _blenderManualDataViewModel = new BlenderManualDataViewModel();
-            AdminDataGrid.DataContext = _blenderManualDataViewModel;
-            AdminDataGrid.ItemsSource = _blenderManualDataViewModel.BMData;
-        }
-
+        static TransitionControl _transitionControl;
+       
+        
         public AdminView(TransitionControl transitionControl)
         {
             InitializeComponent();
             _transitionControl = transitionControl;
-            _blenderManualDataViewModel = new BlenderManualDataViewModel(); // Initialize _blenderManualDataViewModel
-            AdminDataGrid.DataContext = _blenderManualDataViewModel;
-            AdminDataGrid.ItemsSource = _blenderManualDataViewModel.BMData;
+            _adminViewModel = new AdminViewModel(); 
+            AdminDataGrid.DataContext = _adminViewModel;
+            AddButton.DataContext = _adminViewModel;
+            LogOutButton.DataContext = _adminViewModel;
         }
 
-        
-
-        public void LogOutButton_Click(object sender, RoutedEventArgs e)
+       public static void LogOutAnimation()
         {
             var transControl = new TransitionControl(_transitionControl.ParentWindow);
             var screenOne = new LoginView(transControl);
             _transitionControl.ParentWindow.ChangeContent(screenOne,AnimationManager.SlideAnimationType.SlideDown);
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        public static void AddAnimation() 
         {
             _transitionControl.ParentWindow.ChangeContent(new AddView(new TransitionControl(_transitionControl.ParentWindow)), AnimationManager.SlideAnimationType.SlideLeft);
+        }
+
+
+        private void AdminDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
