@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfBlenderManualViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BlenderManualViewModel>
+    <Id>1</Id>
+    <HyperLink>2</HyperLink>
+    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\Images\Screenshot_3.png</ImagePath>
+    <ContentPath>1</ContentPath>
+    <DateAdded>2024-03-26T22:51:24.1903761+01:00</DateAdded>
+  </BlenderManualViewModel>
+  <BlenderManualViewModel>
+    <Id>12313</Id>
+    <HyperLink>sdsdfssd</HyperLink>
+    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\Images\Screenshot_1.png</ImagePath>
+    <ContentPath>12313</ContentPath>
+    <DateAdded>2024-03-26T22:51:42.0152129+01:00</DateAdded>
+  </BlenderManualViewModel>
+</ArrayOfBlenderManualViewModel>

@@ -1,4 +1,6 @@
-﻿using Projekat_HCI.ViewModel;
+﻿using Projekat_HCI.CustomElements;
+using Projekat_HCI.Model;
+using Projekat_HCI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,19 +25,18 @@ namespace Projekat_HCI.View
     {
         private static TransitionControl _transitionControl;
 
-        //private AddViewModel _addViewModel;
-       
+        private AddViewModel _addViewModel;
 
         public AddView(TransitionControl transitionControl)
         {
             InitializeComponent();
+
+            CustomToolBar.RichTextBox = AddViewRichTextBox;
+            _addViewModel = new AddViewModel();
+            _addViewModel.richTextBox = AddViewRichTextBox;
             _transitionControl = transitionControl;
+            DataContext = _addViewModel;
             
-            this.DataContext = new AddViewModel();
-            //IdTextBox.DataContext = _addViewModel;
-            //DateTextBox.DataContext = _addViewModel;
-            //BackButton.DataContext = _addViewModel;
-           // AddButton.DataContext = _addViewModel;
         }
 
 
@@ -48,14 +49,47 @@ namespace Projekat_HCI.View
 
         private void ImageGrid_MouseEnter(object sender, MouseEventArgs e)
         {
-            DefaultImage.Height = 200;
-            DefaultImage.Width = 200;
+            DefaultImage.Height = 195;
+            DefaultImage.Width = 195;
         }
 
         private void ImageGrid_MouseLeave(object sender, MouseEventArgs e)
         {
-            DefaultImage.Height = 216;
-            DefaultImage.Width = 216;
+            DefaultImage.Height = 200;
+            DefaultImage.Width = 200;
+        }
+
+         private void RichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
+         {
+             object fontWeight = AddViewRichTextBox.Selection.GetPropertyValue(Inline.FontWeightProperty);
+             CustomToolBar.BoldToggleButton.IsChecked = (fontWeight != DependencyProperty.UnsetValue) && (fontWeight.Equals(FontWeights.Bold));
+
+             object fontFamily = AddViewRichTextBox.Selection.GetPropertyValue(Inline.FontFamilyProperty);
+             CustomToolBar.FontFamilyComboBox.SelectedItem = fontFamily;
+
+             object fontItalic = AddViewRichTextBox.Selection.GetPropertyValue(Inline.FontStyleProperty);
+             CustomToolBar.ItalicToggleButton.IsChecked = (fontItalic != DependencyProperty.UnsetValue) && (fontItalic.Equals(FontStyles.Italic));
+
+             object fontUnderline = AddViewRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+             CustomToolBar.UnderlineToggleButton.IsChecked = (fontUnderline != DependencyProperty.UnsetValue) && (fontUnderline.Equals(TextDecorations.Underline));
+
+             object fontSize = AddViewRichTextBox.Selection.GetPropertyValue(Inline.FontSizeProperty);
+             CustomToolBar.FontSizeComboBox.SelectedItem = fontSize;
+
+             object fontColor = AddViewRichTextBox.Selection.GetPropertyValue(Inline.ForegroundProperty);
+
+            string[] MyColors;
+            
+            for (int i = 0; i < AddViewModel.ColorList.Count; i++)
+            {
+                MyColors = AddViewModel.ColorList[i].ToString().Split(' ');
+                if (MyColors[MyColors.Count() - 2].Equals(fontColor.ToString()))
+                {
+                   CustomToolBar.TextColorComboBox.SelectedItem = AddViewModel.ColorList[i];
+                }
+                
+            }
+
         }
     }
 }

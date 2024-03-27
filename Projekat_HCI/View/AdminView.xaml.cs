@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Projekat_HCI.Repositories;
 using Projekat_HCI.View;
 using Projekat_HCI.ViewModel;
 
@@ -32,10 +33,8 @@ namespace Projekat_HCI.View
         {
             InitializeComponent();
             _transitionControl = transitionControl;
-            _adminViewModel = new AdminViewModel(); 
-            AdminDataGrid.DataContext = _adminViewModel;
-            AddButton.DataContext = _adminViewModel;
-            LogOutButton.DataContext = _adminViewModel;
+            _adminViewModel = new AdminViewModel();
+            DataContext = _adminViewModel;
         }
 
        public static void LogOutAnimation()
@@ -45,15 +44,13 @@ namespace Projekat_HCI.View
             _transitionControl.ParentWindow.ChangeContent(screenOne,AnimationManager.SlideAnimationType.SlideDown);
         }
 
+       
+
         public static void AddAnimation() 
         {
             _transitionControl.ParentWindow.ChangeContent(new AddView(new TransitionControl(_transitionControl.ParentWindow)), AnimationManager.SlideAnimationType.SlideLeft);
         }
 
-
-        private void AdminDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
     }
 }

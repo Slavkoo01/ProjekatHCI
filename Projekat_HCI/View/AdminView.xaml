@@ -23,7 +23,8 @@
                 </Grid.ColumnDefinitions>
                 <Button x:Name="LogOutButton" Style="{StaticResource LogOutButtonStyle}" Grid.Column="1" Content="Log Out" Margin="10,0,10,30"  Command="{Binding LogOutCommand}"/>
                 <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
-                    <Button x:Name="DeleteButton" Content="Delete" Margin="10,0,10,10" Style="{StaticResource DeleteButtonStyle}"/>
+                    <Button x:Name="DeleteButton" Content="Delete" Margin="10,0,10,10" Style="{StaticResource DeleteButtonStyle}" Command="{Binding DeleteCommand}"/>
+                    <Button x:Name="SaveButton" Content="Save" Margin="10,0,10,10" Style="{StaticResource SaveButtonStyle}" Command="{Binding SaveCommand}"/>
                     <Button x:Name="AddButton" Content="Add" Margin="10,0,10,10" Style="{StaticResource AddButtonStyle}" Command="{Binding AddCommand}"/>
                 </StackPanel>
             </Grid>
@@ -37,7 +38,7 @@
                           AutoGenerateColumns="False" 
                           Margin="25,10,25,25" 
                          ItemsSource="{Binding BMData}"
-                          Style="{StaticResource DataGridStyle}" SelectionChanged="AdminDataGrid_SelectionChanged">
+                          Style="{StaticResource DataGridStyle}">
 
 
                     <DataGrid.Columns>
@@ -59,7 +60,7 @@
                         <DataGridTemplateColumn Header="Delete" Width="15*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <CheckBox />
+                                    <CheckBox x:Name="DeleteCheckBox" IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

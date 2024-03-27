@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/blender.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/defult.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/default.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/lazarart2extendedflipped.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/logo.png")]
 

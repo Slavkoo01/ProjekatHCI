@@ -44,7 +44,6 @@ C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\T
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\Style\DataGridStyle.baml
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\AddView.g.cs
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\AddView.baml
-C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\bin\Debug\net7.0-windows\Images\Defult.png
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\Style\GridStyle.baml
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\Style\RichTextBox.baml
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\CustomElements\CustomToolBar.baml
@@ -52,3 +51,4 @@ C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\Style\
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\Style\ToolBarStyle.baml
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\CustomElements\CustomToolBar.g.cs
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\bin\Debug\net7.0-windows\Images\Default.png

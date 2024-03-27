@@ -1,5 +1,7 @@
 ﻿using Accessibility;
+using Projekat_HCI.Helper;
 using Projekat_HCI.Model;
+using Projekat_HCI.Repositories;
 using Projekat_HCI.View;
 using System;
 using System.Collections.Generic;
@@ -20,13 +22,32 @@ namespace Projekat_HCI.ViewModel
         public AdminViewModel()
         {
 
-            BMData.Add(new BlenderManualViewModel(new BlenderManualModel(1,"Test", "/Images/LazarArt2ExtendedFlipped.png", "",DateOnly.FromDateTime(DateTime.Today))));
-            BMData.Add(new BlenderManualViewModel(new BlenderManualModel(1,"Test", "/Images/LazarArt2ExtendedFlipped.png", "",DateOnly.FromDateTime(DateTime.Today))));
-            BMData.Add(new BlenderManualViewModel(new BlenderManualModel(1,"Test", "/Images/LazarArt2ExtendedFlipped.png", "",DateOnly.FromDateTime(DateTime.Today))));
-
         }
         public ViewModelCommands AddCommand => new ViewModelCommands(execute => AddItem());
         public ViewModelCommands LogOutCommand => new ViewModelCommands(execute => LogOut());
+        public ViewModelCommands SaveCommand => new ViewModelCommands(execute => Save());
+        public ViewModelCommands DeleteCommand => new ViewModelCommands(execute => Delete());
+
+        private void Delete()
+        {
+            for (int i = BMData.Count - 1; i >= 0; i--) 
+            {
+                if (BMData[i].IsChecked)
+                {
+                    BMData.RemoveAt(i);
+                    RTFFiles.DeleteRTFFile(BMData[i]);
+                }
+            }
+            GlobalVar.IsSaved = false;
+
+        }
+
+        public void Save()
+        {
+            XMLFiles _serializer = new XMLFiles();
+            _serializer.SerializeObject();
+            GlobalVar.IsSaved = true;
+        }
         private void AddItem()
         {
             AdminView.AddAnimation();
@@ -35,7 +56,7 @@ namespace Projekat_HCI.ViewModel
         {
             AdminView.LogOutAnimation();
         }
-
+        
 
 
     }

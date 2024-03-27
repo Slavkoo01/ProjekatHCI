@@ -37,24 +37,31 @@
                     <ColumnDefinition Width="55*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
+                    
                     <StackPanel Width="250">
 
                         <Border Width="200" Height="200" 
                             BorderBrush="{StaticResource DarkBlumine}"
                             Margin="0,17,0,0">
 
-                            <Grid x:Name="ImageGrid" 
-                                  MouseEnter="ImageGrid_MouseEnter" 
-                                  MouseLeave="ImageGrid_MouseLeave">
+                            <Grid x:Name="ImageGrid">
                                 <Image x:Name="DefaultImage" 
-                                       Source="/Images/Defult.png" 
+                                       Source="{Binding ImagePath}" 
                                        Stretch="Fill" 
-                                       Height="216" 
-                                       Width="216" 
-                                       Margin="-6 -6 0 0"/>
+                                       Height="200" 
+                                       Width="200"/>
 
-
-                                <Grid x:Name="BevelFrameUp" Style="{StaticResource BevelFrameStyle}"/>
+                                <Grid x:Name="BevelFrameUp" Style="{StaticResource BevelFrameStyle}"
+                                       MouseEnter="ImageGrid_MouseEnter" 
+                                       MouseLeave="ImageGrid_MouseLeave">
+                                    <Button Style="{DynamicResource TransparentButtonStyle}" x:Name="AddImageButton" 
+                                            Background="Transparent" 
+                                            BorderThickness="0"
+                                            Foreground="Transparent"
+                                            Command="{Binding AddImageCommand}">
+                                       
+                                    </Button>
+                                </Grid>
                             </Grid>
                         </Border>
                         <TextBlock Text="ID:"
@@ -66,10 +73,10 @@
                         <TextBox x:Name="IdTextBox"
                              BorderBrush="{StaticResource DarkBlumine}" 
                              BorderThickness="5" 
-                             Style="{StaticResource EnterTextBoxStyle}"
                              Width="250" 
                              Margin="0,5,0,0"
-                             Text="{Binding NewId,UpdateSourceTrigger=PropertyChanged}"/>
+                             Style="{StaticResource EnterTextBoxStyle}"
+                             Text="{Binding NewId, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Text="HyperLink"
                            Style="{StaticResource LogInTextBox}"
@@ -79,10 +86,11 @@
 
                         <TextBox x:Name="HyperLinkTextBox" 
                              BorderBrush="{StaticResource DarkBlumine}"
-                             BorderThickness="5" Style="{StaticResource EnterTextBoxStyle}" 
+                             BorderThickness="5" 
                              Width="250" 
                              Margin="0,5,0,0"
-                             Text="{Binding NewHyperLink,UpdateSourceTrigger=PropertyChanged}"/>
+                             Style="{StaticResource EnterTextBoxStyle}"
+                             Text="{Binding NewHyperLink, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Text="Date Added:"
                                Style="{StaticResource LogInTextBox}"
@@ -94,10 +102,10 @@
                              BorderBrush="{StaticResource DarkBlumine}"
                              BorderThickness="5" 
                              IsEnabled="False"
-                             Style="{StaticResource EnterTextBoxStyle}" 
                              Width="250" 
                              Margin="0,5,0,0"
-                             Text="{Binding NewDate,UpdateSourceTrigger=PropertyChanged}"/>
+                             Style="{StaticResource EnterTextBoxStyle}"
+                             Text="{Binding NewDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,30,0,0" HorizontalAlignment="Center">
@@ -110,7 +118,7 @@
                         <Button x:Name="AddButton" 
                                 Style="{StaticResource AddButtonStyle}" 
                                 Content="Add" Margin="10 0 0 0" 
-                                Command="{Binding AddCommand}"/>
+                               Command="{Binding AddCommand}"/>
                     </StackPanel>
                 </StackPanel>
                 <Grid Grid.Column="1" Margin="-80 0 20 25" Width="760">
@@ -120,22 +128,30 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <customToolBar:CustomToolBar Margin="-10 15 15 0" Width="737"/>
-                    
-                    <RichTextBox x:Name="RichTextBox"
+                    <customToolBar:CustomToolBar x:Name="CustomToolBar" 
+                                                 Margin="-10 15 15 0"
+                                                 Width="737"/>
+
+                    <RichTextBox     x:Name="AddViewRichTextBox"
                                      Grid.Row="1"
-                                     
+                                     SelectionChanged="RichTextBox_SelectionChanged"
                                      Margin="0,10,20,20"
                                      BorderThickness="2"
-                                     Background="{StaticResource ToolBarGray}"
+                                     Foreground="Black"
                                      BorderBrush="{StaticResource DarkBlumine}"
                                      Style="{StaticResource AddEditRichTextBoxStyle}">
-                                        
+                        <RichTextBox.Background>
+                            <LinearGradientBrush StartPoint="0.3,0" EndPoint="0.3,1">
+                                <GradientStop Color="{StaticResource AltoC}" Offset="0.93"/>
+                                <GradientStop Color="{StaticResource LightMingC}" Offset="1"/>
+                            </LinearGradientBrush>
+                        </RichTextBox.Background>
                     </RichTextBox>
                     <Border Grid.Row="2" 
                             Background="{StaticResource LightGray}"
                             CornerRadius="5 5 50 5"
                             Height="25"
+                            
                             BorderBrush="{StaticResource DarkBlumine}"
                             BorderThickness="0"
                             Margin="0 -10 20 15">
@@ -156,7 +172,7 @@
                                        Foreground="{StaticResource DarkBlumine}"
                                        FontFamily="Montserrat"
                                        VerticalAlignment="Center"
-                                       Margin="0 5 0 0"/>
+                                       Margin="0 3 0 0"/>
                         </StackPanel>
                     </Border>
                     

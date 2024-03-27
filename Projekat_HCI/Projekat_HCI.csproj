@@ -9,11 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\AddDefault.png" />
+    <None Remove="Images\AddDefult.png" />
     <None Remove="Images\blender.png" />
     <None Remove="Images\BlenderIcon.ico" />
     <None Remove="Images\blenderIcon48 .png" />
+    <None Remove="Images\Default.png" />
     <None Remove="Images\defaultImage.png" />
-    <None Remove="Images\Defult.png" />
     <None Remove="Images\defultImage.png" />
     <None Remove="Images\LazarArt2ExtendedFlipped.png" />
     <None Remove="Images\Logo.png" />
@@ -23,7 +25,7 @@
     <Content Include="Images\blender.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Defult.png">
+    <Content Include="Images\Default.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\LazarArt2ExtendedFlipped.png">
@@ -40,10 +42,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\AddDefault.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\BlenderIcon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\blenderIcon48 .png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\RTFData\" />
   </ItemGroup>
 
 </Project>

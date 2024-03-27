@@ -1,92 +1,177 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Brushes.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    
+    <Style x:Key="{x:Type Hyperlink}" TargetType="{x:Type Hyperlink}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}"/>
+        <Setter Property="TextDecorations" Value="Underline"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="Red"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="true">
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <SolidColorBrush x:Key="TextBox.Static.Border" Color="{StaticResource BlumineC}"/>
+    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="{StaticResource MingC}"/>
+    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="{StaticResource DarkBlumineC}"/>
+    <Style x:Key="{x:Type TextBoxBase}" TargetType="{x:Type TextBoxBase}">
 
-    <Style x:Key="AddEditRichTextBoxStyle" TargetType="RichTextBox">
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="RichTextBox">
-                    <Border BorderThickness="2 2 2 10" 
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            CornerRadius="10 10 10 10">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0.3,0" EndPoint="0.3,1">
-                                <GradientStop Color="{StaticResource AltoC}" Offset="0.93"/>
-                                <GradientStop Color="{StaticResource LightMingC}" Offset="1"/>
-                                
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="90*"/>
-                                <ColumnDefinition Width="5*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="93*"/>
-                                <RowDefinition Height="5*"/>
-                            </Grid.RowDefinitions>
-                            <ScrollViewer x:Name="PART_ContentHost"
-                                          Grid.Column="1"
-                                          Grid.Row="1"
-                                          VerticalScrollBarVisibility="Auto"
-                                          HorizontalScrollBarVisibility="Hidden">
-                                <ScrollViewer.Resources>
-                                    <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
-                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
-                                        <Setter Property="OverridesDefaultStyle" Value="true"/>
-                                        <Setter Property="IsTabStop" Value="false"/>
-                                        <Setter Property="Focusable" Value="false"/>
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="{x:Type Thumb}">
-                                                    <Border CornerRadius="4" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0"  Width="8" Margin="8,0,-2,0"/>
-                                                </ControlTemplate>
-                                            </Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border x:Name="border" CornerRadius="10"  Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="2 2 2 10" SnapsToDevicePixels="True">
 
-                                        </Setter>
+                        <!--SrollViewer-->
+<Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="5*"/>
+        <ColumnDefinition Width="90*"/>
+        <ColumnDefinition Width="5*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="2*"/>
+        <RowDefinition Height="93*"/>
+        <RowDefinition Height="5*"/>
+    </Grid.RowDefinitions>
+    <ScrollViewer x:Name="PART_ContentHost"
+                  Grid.Column="1"
+                  Grid.Row="1"
+                  VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Hidden">
+        <ScrollViewer.Resources>
+            <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="OverridesDefaultStyle" Value="true"/>
+                <Setter Property="IsTabStop" Value="false"/>
+                <Setter Property="Focusable" Value="false"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Border CornerRadius="4" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0"  Width="8" Margin="8,0,-2,0"/>
+                        </ControlTemplate>
+                    </Setter.Value>
 
-                                    </Style>
+                </Setter>
 
-                                    <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
-                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
-                                        <Setter Property="OverridesDefaultStyle" Value="true"/>
-                                        <Style.Triggers>
-                                            <Trigger Property="Orientation" Value="Vertical">
-                                                <Setter Property="Width" Value="18"/>
-                                                <Setter Property="Height" Value="Auto" />
-                                                <Setter Property="Template">
-                                                    <Setter.Value>
-                                                        <ControlTemplate>
-                                                            <Grid>
-                                                                <Grid.RowDefinitions>
-                                                                    <RowDefinition MaxHeight="0"/>
-                                                                    <RowDefinition Height="0.00001*"/>
-                                                                    <RowDefinition MaxHeight="0"/>
-                                                                </Grid.RowDefinitions>
-                                                                <Border Grid.RowSpan="3" CornerRadius="2" Background="Transparent" />
+            </Style>
 
-                                                                <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
+            <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="OverridesDefaultStyle" Value="true"/>
+                <Style.Triggers>
+                    <Trigger Property="Orientation" Value="Vertical">
+                        <Setter Property="Width" Value="18"/>
+                        <Setter Property="Height" Value="Auto" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition MaxHeight="0"/>
+                                            <RowDefinition Height="0.00001*"/>
+                                            <RowDefinition MaxHeight="0"/>
+                                        </Grid.RowDefinitions>
+                                        <Border Grid.RowSpan="3" CornerRadius="2" Background="Transparent" />
 
-                                                                    <Track.Thumb>
-                                                                        <Thumb Style="{StaticResource ScrollBarThumb}" Margin="-7,0,0,40" Background="{StaticResource Blumine}"/>
-                                                                    </Track.Thumb>
+                                        <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
 
-                                                                </Track>
-                                                            </Grid>
-                                                        </ControlTemplate>
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </ScrollViewer.Resources>
-                            </ScrollViewer>
-                        </Grid>
+                                            <Track.Thumb>
+                                                <Thumb Style="{StaticResource ScrollBarThumb}" Margin="-7,0,0,40" Background="{StaticResource Blumine}"/>
+                                            </Track.Thumb>
+
+                                        </Track>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ScrollViewer.Resources>
+        
+    </ScrollViewer>
+</Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!--SrollViewer-->
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
     </Style>
 
+    <Style x:Key="AddEditRichTextBoxStyle" TargetType="{x:Type RichTextBox}">
+        <Style.Resources>
+            <Style x:Key="{x:Type FlowDocument}" TargetType="{x:Type FlowDocument}">
+                <Setter Property="OverridesDefaultStyle" Value="true"/>
+            </Style>
+            <Style x:Key="{x:Type Hyperlink}" BasedOn="{StaticResource {x:Type Hyperlink}}" TargetType="{x:Type Hyperlink}">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Foreground" Value="Blue"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Style.Resources>
+        <Setter Property="MinWidth" Value="10"/>
+        <Style.BasedOn>
+            <StaticResource ResourceKey="{x:Type TextBoxBase}"/>
+        </Style.BasedOn>
+    </Style>
+    
+   
 </ResourceDictionary>
