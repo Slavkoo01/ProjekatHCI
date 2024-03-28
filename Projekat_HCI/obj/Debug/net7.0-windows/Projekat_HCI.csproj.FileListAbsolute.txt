@@ -52,3 +52,8 @@ C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\Style\
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\CustomElements\CustomToolBar.g.cs
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\bin\Debug\net7.0-windows\Images\Default.png
+C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\EditView.g.cs
+C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\EditView.baml
+C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\Style\CheckBoxStyle.baml
+C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\GuestView.g.cs
+C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\obj\Debug\net7.0-windows\View\GuestView.baml

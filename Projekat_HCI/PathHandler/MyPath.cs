@@ -53,8 +53,11 @@ namespace Projekat_HCI.PathHandler
         {
             try
            {
-               File.Copy(ImageDestinationOnDesktop, DestinationToCopy, true);
-           }
+                if (!File.Exists(DestinationToCopy))
+                {
+                    File.Copy(ImageDestinationOnDesktop, DestinationToCopy, true);
+                }
+            }
            catch (IOException ex)
            {
                MessageBox.Show(ex.ToString());

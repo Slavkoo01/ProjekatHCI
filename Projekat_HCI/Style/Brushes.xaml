@@ -61,10 +61,14 @@
     <SolidColorBrush x:Key="DarkBlumine" Color="#07181D"/>
     <SolidColorBrush x:Key="LightLightBlumin" Color="#56868F"/>
 
+    <SolidColorBrush x:Key="EditButtonBackGround" Color="#35A800"/>
+    <SolidColorBrush x:Key="EditButtonHighlight" Color="#3FC700"/>
+
     <SolidColorBrush x:Key="Navy" Color="#14213D"/>
     <Color x:Key="NavyC">#14213D</Color>
-    
-   
+    <Color x:Key="EditButtonBackGroundC">#35A800</Color>
+    <Color x:Key="EditButtonHighlightC">#3FC700</Color>
+
 
 
     <Color x:Key="BlumineC">#1a596b</Color>

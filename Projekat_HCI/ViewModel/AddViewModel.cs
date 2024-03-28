@@ -106,7 +106,7 @@ namespace Projekat_HCI.ViewModel
             );
             AdminViewModel.BMData.Add(Item);
 
-            RTFFiles.SaveRichTextBoxContent(NewHyperLink, richTextBox);
+            RTFFiles.SaveRichTextBoxContent(NewId.ToString(), richTextBox);
 
             NewId = "";
             NewHyperLink = "";

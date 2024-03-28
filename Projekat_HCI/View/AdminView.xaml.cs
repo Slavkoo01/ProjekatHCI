@@ -50,7 +50,31 @@ namespace Projekat_HCI.View
         {
             _transitionControl.ParentWindow.ChangeContent(new AddView(new TransitionControl(_transitionControl.ParentWindow)), AnimationManager.SlideAnimationType.SlideLeft);
         }
+        public static void EditAnimation(int index, BlenderManualViewModel blenderManualVieModel)
+        {
+            _transitionControl.ParentWindow.ChangeContent(new EditView(new TransitionControl(_transitionControl.ParentWindow), blenderManualVieModel, index), AnimationManager.SlideAnimationType.SlideRight);
+        }
 
-        
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            TextBlock textBlock = (TextBlock)sender;
+
+            
+                if (textBlock.Inlines.FirstOrDefault() is Hyperlink hyperlink)
+                {
+                    if (hyperlink.DataContext is BlenderManualViewModel clickedItem)
+                    {
+                        int index = AdminViewModel.BMData.IndexOf(clickedItem);
+
+                        EditAnimation(index, AdminViewModel.BMData[index]);
+                        
+                        
+                        //AdminDataGrid.Items.Refresh();
+                    }
+                }
+
+            
+        }
+
     }
 }

@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CustomElements\CustomPasswordBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CustomElements\CustomToolBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,6 +17,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AdminView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\GuestView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginView.xaml.cs">
@@ -27,7 +36,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CustomElements\CustomPasswordBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CustomElements\CustomToolBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Style\CheckBoxStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Style\ComboBoxStyle.xaml">
@@ -64,6 +79,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Style\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\GuestView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">

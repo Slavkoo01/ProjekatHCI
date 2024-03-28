@@ -165,7 +165,7 @@
                                    VerticalAlignment="Center"
                                    Margin="5 1 0 0"/>
                             
-                            <TextBlock x:Name="WordCountTextBox"
+                            <TextBlock x:Name="WordCountTextBlock"
                                        Text="0"
                                        FontSize="12"
                                        FontWeight="Medium"

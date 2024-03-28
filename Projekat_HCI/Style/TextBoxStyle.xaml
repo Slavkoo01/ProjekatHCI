@@ -51,29 +51,31 @@
     
     
     <Style x:Key="LoginTextBox" TargetType="TextBox">
+        <Setter Property="Margin" Value="0 5 0 0 "/>
+        <Setter Property="Padding" Value="22 0 0  5"/>
+        <Setter Property="FontFamily" Value="Monsserrat"/>
+        <Setter Property="FontSize" Value="19"/>
+        <Setter Property="Foreground" Value="{StaticResource Alto}"/>
+        <Setter Property="CaretBrush" Value="{StaticResource LightGray}"/>
+        <Setter Property="FontWeight" Value="Medium"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <Border x:Name="border" BorderBrush="{StaticResource DarkGray}" BorderThickness="0,0,0,1">
-                        <TextBox 
-                              Foreground="{StaticResource White}"
-                              Background="Transparent"
-                              CaretBrush="{StaticResource LightGray}"
-                              FontSize="18"
-                              FontFamily="Montserrat"
-                              FontWeight="Medium"
-                              Height="30"
-                              VerticalAlignment="Center"
-                              Margin="0,5,0,0"
-                              Padding="20,2,0,0"
-                              BorderThickness="0,0,0,1"/>
+                    <Border x:Name ="border" Background="Transparent"
+                            BorderBrush="{StaticResource White}" 
+                            BorderThickness="0,0,0,1">
+
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Ming}"/>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                         </Trigger>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource LightMing}"/>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border"  Value="{StaticResource LightMing}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Gothic}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -82,35 +84,38 @@
     </Style>
 
     <Style x:Key="LoginPasswordBox" TargetType="PasswordBox">
+        <Setter Property="Margin" Value="0 5 0 0 "/>
+        <Setter Property="Padding" Value="22 0 0  5"/>
+        <Setter Property="FontFamily" Value="Monsserrat"/>
+        <Setter Property="FontSize" Value="19"/>
+        <Setter Property="Foreground" Value="{StaticResource Alto}"/>
+        <Setter Property="CaretBrush" Value="{StaticResource LightGray}"/>
+        
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="PasswordBox">
-                    <Border x:Name="border" BorderBrush="{StaticResource DarkGray}" BorderThickness="0,0,0,1">
-                        <PasswordBox 
-                                 Foreground="{StaticResource White}"
-                                 Background="Transparent"
-                                 CaretBrush="{StaticResource LightGray}"
-                                 FontSize="18"
-                                 FontFamily="Montserrat"
-                                 FontWeight="Medium"
-                                 Height="30"
-                                 VerticalAlignment="Center"
-                                 Margin="0,5,0,0"
-                                 Padding="20,2,0,0"
-                                 BorderThickness="0,0,0,1"/>
+                    <Border x:Name ="border" Background="Transparent"
+                            BorderBrush="{StaticResource White}" BorderThickness="0,0,0,1">
+
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Ming}"/>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                         </Trigger>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource LightMing}"/>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border"  Value="{StaticResource LightMing}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Gothic}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+                    
     
         <Style x:Key="EnterTextBoxStyle" TargetType="TextBox">
             <Setter Property="Background" Value="{StaticResource LightLightBlumin}"/>

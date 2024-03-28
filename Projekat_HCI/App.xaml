@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="Style/DataGridStyle.xaml"/>
                 <ResourceDictionary Source="Style/GridStyle.xaml"/>
                 <ResourceDictionary Source="Style/RichTextBox.xaml"/>
+                <ResourceDictionary Source="Style/CheckBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         

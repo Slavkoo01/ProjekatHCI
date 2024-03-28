@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projekat_HCI.View"
+            xmlns:custom="clr-namespace:Projekat_HCI.CustomElements"
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
@@ -40,7 +41,9 @@
             <!--UserName & Password-->
             <StackPanel>
                 <Grid>
-                    <TextBox Style="{StaticResource LoginTextBox}"/>
+                    <TextBox x:Name="UsernameTextBox" 
+                             Text="{Binding LogInUsername, UpdateSourceTrigger=PropertyChanged}" 
+                             Style="{StaticResource LoginTextBox}"/>
                     <fa5:SvgAwesome
                         Height="15"
                         HorizontalAlignment="left"
@@ -55,8 +58,10 @@
                            Margin="0,20,0,0"
                            FontSize="18"/>  
                 <Grid>
-                    <PasswordBox Style="{StaticResource LoginPasswordBox}"/>
-                    <fa5:SvgAwesome
+                        
+
+
+                        <fa5:SvgAwesome
                          Height="15"
                          HorizontalAlignment="left"
                          Margin="1,0,0,0"
@@ -67,7 +72,7 @@
             </StackPanel>
             <Button x:Name="LoginButton" Style="{StaticResource LoginButtonStyle}"
                     Margin="0,30,0,0"
-                    Click="LoginButton_Click">
+                    Command="{Binding LoginCommand}">
             </Button>
 
 

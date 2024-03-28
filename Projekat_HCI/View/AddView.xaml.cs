@@ -37,6 +37,7 @@ namespace Projekat_HCI.View
             _transitionControl = transitionControl;
             DataContext = _addViewModel;
             
+
         }
 
 
@@ -89,7 +90,24 @@ namespace Projekat_HCI.View
                 }
                 
             }
+            WordCountTextBlock.Text = CountWords(AddViewRichTextBox).ToString();
+
 
         }
+
+        private int CountWords(RichTextBox richTextBox)
+        {
+            TextRange textRange = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd);
+            string text = textRange.Text.Trim();
+
+            
+            string[] words = text.Split(new char[] { ' ', '\t', '\n', '\r', '?', '.', '!'}, StringSplitOptions.RemoveEmptyEntries);
+
+            
+            int wordCount = words.Length;
+
+            return wordCount;
+        }
+
     }
 }

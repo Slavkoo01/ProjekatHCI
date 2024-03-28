@@ -25,35 +25,45 @@ namespace Projekat_HCI.ViewModel
         }
         public ViewModelCommands AddCommand => new ViewModelCommands(execute => AddItem());
         public ViewModelCommands LogOutCommand => new ViewModelCommands(execute => LogOut());
-        public ViewModelCommands SaveCommand => new ViewModelCommands(execute => Save());
         public ViewModelCommands DeleteCommand => new ViewModelCommands(execute => Delete());
 
         private void Delete()
         {
-            for (int i = BMData.Count - 1; i >= 0; i--) 
-            {
-                if (BMData[i].IsChecked)
-                {
-                    BMData.RemoveAt(i);
-                    RTFFiles.DeleteRTFFile(BMData[i]);
-                }
-            }
-            GlobalVar.IsSaved = false;
+            ObservableCollection<BlenderManualViewModel> temp = new ObservableCollection<BlenderManualViewModel>();
+              for (int i = 0; i < BMData.Count; i++) 
+              {
+                
+                  if (BMData[i].IsChecked)
+                  {
+                      RTFFiles.DeleteRTFFile(BMData[i]);
 
+                  }
+                  else
+                  {
+                        temp.Add(BMData[i]);
+                  }
+              }
+               BMData.Clear();
+               foreach(var item in temp)
+               {
+                BMData.Add(item);
+               }
+              GlobalVar.IsSaved = false;
+            
+            
         }
 
-        public void Save()
-        {
-            XMLFiles _serializer = new XMLFiles();
-            _serializer.SerializeObject();
-            GlobalVar.IsSaved = true;
-        }
         private void AddItem()
         {
             AdminView.AddAnimation();
         }
         private void LogOut()
         {
+            if (!GlobalVar.IsSaved)
+            {
+                XMLFiles _serializer = new XMLFiles();
+                _serializer.SerializeObject();
+            }
             AdminView.LogOutAnimation();
         }
         

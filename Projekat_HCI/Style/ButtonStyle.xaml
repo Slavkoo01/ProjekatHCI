@@ -330,7 +330,7 @@
                             Icon="Solid_Pen"
                             Height="25"
                             Foreground="White"
-                            Margin="10,0,0,0">
+                            Margin="20,0,0,0">
 
                             </fa5:SvgAwesome>
                             <TextBlock Grid.Column="1"
@@ -344,10 +344,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{StaticResource LoginButtonHighlight}"/>
+                            <Setter Property="Background" Value="{StaticResource EditButtonHighlight}"/>
                             <Setter Property="FontSize" Value="15"/>
                             <Setter TargetName="fa5Button" Property="Height" Value="23"/>
-                            <Setter TargetName="fa5Button" Property="Margin" Value="15,0,0,0"/>
+                            <Setter TargetName="fa5Button" Property="Margin" Value="25,0,0,0"/>
 
                             <Setter Property="BorderThickness" Value="5"/>
                             
@@ -355,7 +355,7 @@
 
                             <Setter Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect Color="{StaticResource LoginButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
+                                    <DropShadowEffect Color="{StaticResource EditButtonHighlightC}" BlurRadius="20" Opacity="1" ShadowDepth="0"/>
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -363,16 +363,19 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="{StaticResource Ming}"/>
+        <Setter Property="Background" Value="{StaticResource EditButtonBackGround}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Foreground" Value="{StaticResource Alto}"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontFamily" Value="Montserrat"/>
         <Setter Property="Cursor" Value="Hand"/>
-
-
     </Style>
+    
+    
+
+
+
     <!--DeleteButton-->
     <Style x:Key="DeleteButtonStyle" TargetType="Button">
         <Setter Property="Template">

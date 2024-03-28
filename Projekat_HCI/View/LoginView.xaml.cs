@@ -21,20 +21,26 @@ namespace Projekat_HCI.View
     /// </summary>
     public partial class LoginView : UserControl
     {
+        private LoginViewModel _loginViewModel;
         public LoginView()
         {
             InitializeComponent();
         }
-        TransitionControl _transitionControl;
+        static TransitionControl _transitionControl;
         public LoginView(TransitionControl transitionControl)
         {
             InitializeComponent();
             _transitionControl = transitionControl;
+            _loginViewModel = new LoginViewModel();
+            DataContext = _loginViewModel;
         }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        public static void LogInAnimationAdmin()
         {
             _transitionControl.ParentWindow.ChangeContent(new AdminView(new TransitionControl(_transitionControl.ParentWindow)), AnimationManager.SlideAnimationType.SlideUp);
+        }public static void LogInAnimationGuest()
+        {
+            _transitionControl.ParentWindow.ChangeContent(new GuestView(new TransitionControl(_transitionControl.ParentWindow)), AnimationManager.SlideAnimationType.SlideUp);
         }
+        
     }
 }

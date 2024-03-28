@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Projekat_HCI.Helper;
+using Projekat_HCI.Repositories;
 using Projekat_HCI.ViewModel;
 
 namespace Projekat_HCI.View
@@ -52,6 +54,11 @@ namespace Projekat_HCI.View
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
+            if (!GlobalVar.IsSaved)
+            {
+                XMLFiles _serializer = new XMLFiles();
+                _serializer.SerializeObject();
+            }
             Close();
         }
     }

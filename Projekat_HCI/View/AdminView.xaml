@@ -24,7 +24,6 @@
                 <Button x:Name="LogOutButton" Style="{StaticResource LogOutButtonStyle}" Grid.Column="1" Content="Log Out" Margin="10,0,10,30"  Command="{Binding LogOutCommand}"/>
                 <StackPanel Orientation="Horizontal" Margin="20 20 0 0">
                     <Button x:Name="DeleteButton" Content="Delete" Margin="10,0,10,10" Style="{StaticResource DeleteButtonStyle}" Command="{Binding DeleteCommand}"/>
-                    <Button x:Name="SaveButton" Content="Save" Margin="10,0,10,10" Style="{StaticResource SaveButtonStyle}" Command="{Binding SaveCommand}"/>
                     <Button x:Name="AddButton" Content="Add" Margin="10,0,10,10" Style="{StaticResource AddButtonStyle}" Command="{Binding AddCommand}"/>
                 </StackPanel>
             </Grid>
@@ -51,8 +50,17 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <!-- Kolona za Hyperlink-a -->
-                        <DataGridTextColumn Header="Hyperlink Data" Binding="{Binding HyperLink}" Width="25*"/>
-                     
+                        <DataGridHyperlinkColumn 
+                            Binding="{Binding HyperLink}" 
+                            Header="HyperLink"
+                            Width="25*">
+                            <DataGridHyperlinkColumn.ElementStyle>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource HyperLink}">
+                                    <EventSetter Event="Hyperlink.Click" Handler="Hyperlink_Click"/>
+                                </Style>
+                            </DataGridHyperlinkColumn.ElementStyle>
+                        </DataGridHyperlinkColumn>
+
                         <!-- Kolona za datum -->
                         <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded}" Width="25*"/>
                        
@@ -60,7 +68,7 @@
                         <DataGridTemplateColumn Header="Delete" Width="15*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <CheckBox x:Name="DeleteCheckBox" IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <CheckBox x:Name="DeleteCheckBox" Style="{StaticResource CheckBoxStyle}" IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -72,7 +80,9 @@
                 </DataGrid>
                 
             </Grid>
+            
         </Grid>
+        
     </Border>
 </UserControl>
 
