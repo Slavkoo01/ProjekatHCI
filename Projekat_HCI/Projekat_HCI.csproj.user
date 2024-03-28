@@ -31,6 +31,9 @@
     <Compile Update="View\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\PresentationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\TransitionControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -91,6 +94,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PresentationView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\TransitionControl.xaml">

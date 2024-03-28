@@ -20,5 +20,13 @@ namespace Projekat_HCI.ViewModel
         {
 
         }
+
+        public ViewModelCommands LogOutCommand => new ViewModelCommands(execute => LogOut());
+
+        private void LogOut()
+        {
+            GuestView.LogOutAnimation();
+        }
+
     }
 }

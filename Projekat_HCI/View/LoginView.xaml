@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projekat_HCI.View"
-            xmlns:custom="clr-namespace:Projekat_HCI.CustomElements"
+             xmlns:custom="clr-namespace:Projekat_HCI.CustomElements"
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
@@ -43,8 +43,9 @@
                 <Grid>
                     <TextBox x:Name="UsernameTextBox" 
                              Text="{Binding LogInUsername, UpdateSourceTrigger=PropertyChanged}" 
-                             Style="{StaticResource LoginTextBox}"/>
+                             Style="{StaticResource LoginTextBox}" />
                     <fa5:SvgAwesome
+                        x:Name="UserIcon"
                         Height="15"
                         HorizontalAlignment="left"
                         Margin="1,0,0,0"
@@ -58,10 +59,9 @@
                            Margin="0,20,0,0"
                            FontSize="18"/>  
                 <Grid>
-                        
-
-
+                        <PasswordBox x:Name="PasswordTextBox" Style="{StaticResource LoginPasswordBox}" PasswordChanged="PasswordTextBox_PasswordChanged"/>
                         <fa5:SvgAwesome
+                         x:Name="KeyIcon"
                          Height="15"
                          HorizontalAlignment="left"
                          Margin="1,0,0,0"

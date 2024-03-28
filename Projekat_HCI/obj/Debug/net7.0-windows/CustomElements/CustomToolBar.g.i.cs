@@ -111,7 +111,7 @@ namespace Projekat_HCI.CustomElements {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Projekat_HCI;component/customelements/customtoolbar.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Projekat_HCI;V1.0.0.0;component/customelements/customtoolbar.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\CustomElements\CustomToolBar.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

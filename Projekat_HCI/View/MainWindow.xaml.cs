@@ -26,6 +26,8 @@ namespace Projekat_HCI.View
 
         private readonly AnimationManager _animationManager;
 
+       
+
         public MainWindow()
         {
             InitializeComponent();
@@ -46,7 +48,6 @@ namespace Projekat_HCI.View
                 DragMove();
             }
         }
-
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
@@ -54,12 +55,16 @@ namespace Projekat_HCI.View
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            if (!GlobalVar.IsSaved)
-            {
-                XMLFiles _serializer = new XMLFiles();
-                _serializer.SerializeObject();
-            }
+            
+                if (!GlobalVar.IsSaved && GlobalVar.role == Model.UserRole.Admin)
+                {
+                    XMLFiles _serializer = new XMLFiles();
+                    _serializer.SerializeObject();
+                }
+            
             Close();
         }
+
+       
     }
 }

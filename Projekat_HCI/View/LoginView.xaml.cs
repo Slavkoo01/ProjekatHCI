@@ -41,6 +41,10 @@ namespace Projekat_HCI.View
         {
             _transitionControl.ParentWindow.ChangeContent(new GuestView(new TransitionControl(_transitionControl.ParentWindow)), AnimationManager.SlideAnimationType.SlideUp);
         }
-        
+
+        private void PasswordTextBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            _loginViewModel.LogInPassword = PasswordTextBox.Password;
+        }
     }
 }

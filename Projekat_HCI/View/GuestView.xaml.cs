@@ -41,9 +41,9 @@ namespace Projekat_HCI.View
             _transitionControl.ParentWindow.ChangeContent(screenOne, AnimationManager.SlideAnimationType.SlideDown);
         }
 
-        public static void EditAnimation(int index, BlenderManualViewModel blenderManualVieModel)
+        public static void PresentationAnimation(BlenderManualViewModel blenderManualVieModel)
         {
-            _transitionControl.ParentWindow.ChangeContent(new EditView(new TransitionControl(_transitionControl.ParentWindow), blenderManualVieModel, index), AnimationManager.SlideAnimationType.SlideRight);
+            _transitionControl.ParentWindow.ChangeContent(new PresentationView(new TransitionControl(_transitionControl.ParentWindow), blenderManualVieModel), AnimationManager.SlideAnimationType.SlideUp);
         }
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
@@ -55,9 +55,9 @@ namespace Projekat_HCI.View
             {
                 if (hyperlink.DataContext is BlenderManualViewModel clickedItem)
                 {
-                    int index = AdminViewModel.BMData.IndexOf(clickedItem);
+                    int index = GuestViewModel.BMData.IndexOf(clickedItem);
 
-                    EditAnimation(index, AdminViewModel.BMData[index]);
+                    PresentationAnimation(GuestViewModel.BMData[index]);
                 }
             }
 
