@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Projekat_HCI.View"
              xmlns:custom="clr-namespace:Projekat_HCI.CustomElements"
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
 
@@ -53,7 +54,13 @@
                         Foreground="{StaticResource DarkGray}"
                         Icon="Solid_User" />
                 </Grid>
-                <TextBlock Text="Password"
+                    <TextBlock x:Name="UsernameError"
+                               Text="" 
+                               Foreground="{StaticResource Redish}"
+                               FontSize="13"
+                               FontWeight="Medium"
+                               Opacity="0"/>
+                    <TextBlock Text="Password"
                            Style="{StaticResource LogInTextBox}"
                            FontWeight="Medium"
                            Margin="0,20,0,0"
@@ -69,15 +76,21 @@
                          Foreground="{StaticResource DarkGray}"
                          Icon="Solid_Key" />
                 </Grid>
-            </StackPanel>
+                    <TextBlock x:Name="PasswordError"
+                               Text="" 
+                               FontSize="13"
+                               FontWeight="Medium"
+                               Foreground="{StaticResource Redish}"
+                               Opacity="0"/>
+                </StackPanel>
             <Button x:Name="LoginButton" Style="{StaticResource LoginButtonStyle}"
                     Margin="0,30,0,0"
-                    Command="{Binding LoginCommand}">
+                    Click="LoginButton_Click">
             </Button>
 
 
         </StackPanel>
-
-    </Grid>
+           
+        </Grid>
     </Border>
 </UserControl>

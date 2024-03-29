@@ -3,6 +3,7 @@
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
  xmlns:local="clr-namespace:Projekat_HCI.View"
       
  mc:Ignorable="d"
@@ -56,10 +57,11 @@
                             Grid.Column="2"
                             Click="btnClose_Click"/>
                 </Grid>
-            </Grid>
+                </Grid>
             
             </Border>
         </Border>
         <Canvas x:Name="TransitionContainer"/>
+                    <notifications:NotificationArea x:Name="WindowNotificationArea" Margin="0 0 40 15" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="1"/>
     </Grid>
 </Window>

@@ -1,10 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfBlenderManualViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <BlenderManualViewModel>
-    <Id>4</Id>
-    <HyperLink>bbvhjbh</HyperLink>
-    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\Images\Screenshot_2.png</ImagePath>
-    <ContentPath>4</ContentPath>
-    <DateAdded>2024-03-28T18:11:25.7578188+01:00</DateAdded>
+    <Id>1</Id>
+    <HyperLink>Blender Introduction</HyperLink>
+    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\Images\BlenderModel1.png</ImagePath>
+    <ContentPath>1</ContentPath>
+    <DateAdded>2024-03-29T17:34:28.1374673+01:00</DateAdded>
+  </BlenderManualViewModel>
+  <BlenderManualViewModel>
+    <Id>2</Id>
+    <HyperLink>Blender ToolBar</HyperLink>
+    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\Images\BlenderModel2.png</ImagePath>
+    <ContentPath>2</ContentPath>
+    <DateAdded>2024-03-29T16:02:07.0697799+01:00</DateAdded>
+  </BlenderManualViewModel>
+  <BlenderManualViewModel>
+    <Id>3</Id>
+    <HyperLink>Blender Tools</HyperLink>
+    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\Images\BlenderMode3.png</ImagePath>
+    <ContentPath>3</ContentPath>
+    <DateAdded>2024-03-29T17:35:03.2565754+01:00</DateAdded>
   </BlenderManualViewModel>
 </ArrayOfBlenderManualViewModel>

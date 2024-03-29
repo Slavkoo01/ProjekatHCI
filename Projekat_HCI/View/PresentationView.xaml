@@ -40,6 +40,9 @@
                              Background="Transparent" 
                              BorderBrush="Transparent"
                              Height="520"
+                             IsReadOnlyCaretVisible="False"
+                             PreviewMouseLeftButtonDown="PresentationRichTextBox_PreviewMouseLeftButtonDown"
+                             IsReadOnly="True"
                              Margin="-5 10 10 10"
                              Style="{StaticResource PreViewRichTextBoxStyle}"/>
                 <Button x:Name="BackButton"

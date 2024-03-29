@@ -68,9 +68,12 @@
     <Color x:Key="NavyC">#14213D</Color>
     <Color x:Key="EditButtonBackGroundC">#35A800</Color>
     <Color x:Key="EditButtonHighlightC">#3FC700</Color>
+    
+    <Color x:Key="WarningC">#FFCE08</Color>
+    <SolidColorBrush x:Key="Warning" Color="#FFCE08"/>
 
 
-
+    
     <Color x:Key="BlumineC">#1a596b</Color>
     <Color x:Key="DarkBlumineC">#07181D</Color>
     

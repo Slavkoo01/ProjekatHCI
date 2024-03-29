@@ -74,7 +74,8 @@ namespace Projekat_HCI.View
              object fontUnderline = AddViewRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
              CustomToolBar.UnderlineToggleButton.IsChecked = (fontUnderline != DependencyProperty.UnsetValue) && (fontUnderline.Equals(TextDecorations.Underline));
 
-             object fontSize = AddViewRichTextBox.Selection.GetPropertyValue(Inline.FontSizeProperty);
+            
+            object fontSize = AddViewRichTextBox.Selection.GetPropertyValue(Inline.FontSizeProperty);
              CustomToolBar.FontSizeComboBox.SelectedItem = fontSize;
 
              object fontColor = AddViewRichTextBox.Selection.GetPropertyValue(Inline.ForegroundProperty);

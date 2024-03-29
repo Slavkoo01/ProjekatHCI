@@ -74,7 +74,7 @@
                              BorderBrush="{StaticResource DarkBlumine}" 
                              BorderThickness="5" 
                              Width="250" 
-                             Margin="0,5,0,0"
+                             Margin="0,5,0,5"
                              Style="{StaticResource EnterTextBoxStyle}"
                              Text="{Binding NewId, UpdateSourceTrigger=PropertyChanged}"/>
 
@@ -88,7 +88,7 @@
                              BorderBrush="{StaticResource DarkBlumine}"
                              BorderThickness="5" 
                              Width="250" 
-                             Margin="0,5,0,0"
+                             Margin="0,5,0,5"
                              Style="{StaticResource EnterTextBoxStyle}"
                              Text="{Binding NewHyperLink, UpdateSourceTrigger=PropertyChanged}"/>
 
@@ -149,7 +149,7 @@
                     </RichTextBox>
                     <Border Grid.Row="2" 
                             Background="{StaticResource LightGray}"
-                            CornerRadius="5 5 50 5"
+                            CornerRadius="5"
                             Height="25"
                             
                             BorderBrush="{StaticResource DarkBlumine}"

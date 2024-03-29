@@ -7,9 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="CustomElements\CustomPasswordBox.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="CustomElements\CustomToolBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -17,6 +14,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AdminView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CustomMessageBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\EditView.xaml.cs">
@@ -39,9 +39,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="CustomElements\CustomPasswordBox.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="CustomElements\CustomToolBar.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -82,6 +79,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Style\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CustomMessageBox.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\EditView.xaml">

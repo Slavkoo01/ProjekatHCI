@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+﻿ using Microsoft.Win32;
 using Projekat_HCI.View;
 using System;
 using System.Collections.Generic;
@@ -14,11 +14,15 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using Projekat_HCI.Repositories;
 using Projekat_HCI.Helper;
+using System.Collections;
+using System.ComponentModel;
+using Notification.Wpf;
 
 namespace Projekat_HCI.ViewModel
 {
-    public class AddViewModel : ViewModelBase
+    public class AddViewModel : ViewModelBase, INotifyDataErrorInfo
     {
+        private bool ImageWarning = true;
         public RichTextBox richTextBox {  get; set; }
 
         private string[] paths = null;
@@ -77,8 +81,86 @@ namespace Projekat_HCI.ViewModel
             get { return _colorList; }
             set { _colorList = value; }
         }
+        private ErrorViewModel _errorViewModel;
+        public AddViewModel()
+        {
+            _errorViewModel = new ErrorViewModel();
+            _errorViewModel.ErrorsChanged += ErrorViewModel_ErrorsChanged;
+            NewId = "";
+            NewHyperLink = "";
+        }
+        #region ErrorHandling
+        private void ErrorViewModel_ErrorsChanged(object sender, DataErrorsChangedEventArgs e)
+        {
+            ErrorsChanged?.Invoke(this, e);
+        }
+
+        public IEnumerable GetErrors(string propertyName)
+        {
+            return _errorViewModel.GetErrors(propertyName);
+        }
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
+        public bool HasErrors => _errorViewModel.HasErrors;
+
+        private bool Validate()
+        {
+            bool isValid = true;
+            //HYPERLINK VALIDACIJA
+            if (string.IsNullOrWhiteSpace(NewHyperLink))
+            {
+                _errorViewModel.ClearError(nameof(NewHyperLink));
+                _errorViewModel.AddError(nameof(NewHyperLink), "Hyperlink is required.");
+                isValid = false;
+            }
+            else if (NewHyperLink.Length > 25)
+            {
+                _errorViewModel.ClearError(nameof(NewHyperLink));
+                _errorViewModel.AddError(nameof(NewHyperLink), "Hyperlink cannot be longer than 25 characters.");
+                isValid = false;
+            }
+            else
+            {
+                _errorViewModel.ClearError(nameof(NewHyperLink));
+            }
+
+            //ID VALIDACIJA
+            if (string.IsNullOrWhiteSpace(NewId))
+            {
+                _errorViewModel.ClearError(nameof(NewId));
+                _errorViewModel.AddError(nameof(NewId), "ID is required.");
+                isValid = false;
+            }
+            else if (!int.TryParse(NewId, out int idValue) || idValue <= 0)
+            {
+                _errorViewModel.ClearError(nameof(NewId));
+                _errorViewModel.AddError(nameof(NewId), "ID must be a positive integer.");
+                isValid = false;
+            }
+            else if (AdminViewModel.BMData.Any(item => item.Id == NewId))
+            {
+                _errorViewModel.ClearError(nameof(NewId));
+                _errorViewModel.AddError(nameof(NewId), "An object with the same ID already exists.");
+                isValid = false;
+            }
+            else
+            {
+                _errorViewModel.ClearError(nameof(NewId));
+            }
+            if (!isValid)
+            {
+            Toast.ShowToastNotification(new ToastNotification("Error", "Failed to add an item", NotificationType.Error));
+            }
 
 
+
+
+            return isValid;
+        }
+
+        #endregion
+
+        
         public ViewModelCommands AddCommand => new ViewModelCommands(execute => AddItem());
         public ViewModelCommands BackCommand => new ViewModelCommands(execute => GoBack());
         public ViewModelCommands AddImageCommand => new ViewModelCommands(execute => AddImage());
@@ -86,12 +168,20 @@ namespace Projekat_HCI.ViewModel
         private void AddImage()
         {
             paths = MyPath.PathImage();
-            ImagePath = paths != null && paths[0] != "" ? paths[0] : "/Images/Default.png";          
+            ImagePath = paths != null && paths[0] != "" ? paths[0] : "/Images/Default.png";
+            ImageWarning = true;
         }
-
+       
         private void AddItem()
         {
-            if(paths != null)
+            if (!Validate()) 
+            {
+                return;
+            } 
+                
+            
+
+            if (paths != null)
             {
                 MyPath.SaveToImages(paths[0], paths[1]);
             }
@@ -104,15 +194,22 @@ namespace Projekat_HCI.ViewModel
                     DateTime.Now
                 )
             );
+
+            if (Item.ImagePath == "/Images/Default.png" && ImageWarning)
+            {
+                Toast.ShowToastNotification(new ToastNotification("Warning", "Your image is set to default. Click Add one more time to confirm", NotificationType.Warning));
+                ImageWarning = false;
+                return;
+            }
+
             AdminViewModel.BMData.Add(Item);
 
             RTFFiles.SaveRichTextBoxContent(NewId.ToString(), richTextBox);
 
-            NewId = "";
-            NewHyperLink = "";
+            
 
             GlobalVar.IsSaved = false;
-
+            Toast.ShowToastNotification(new ToastNotification("Success", "An item successfully added", NotificationType.Success));
             GoBack();
 
         }

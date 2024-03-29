@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Notification.Wpf;
 using Projekat_HCI.Helper;
 using Projekat_HCI.Repositories;
 using Projekat_HCI.ViewModel;
@@ -26,11 +27,13 @@ namespace Projekat_HCI.View
 
         private readonly AnimationManager _animationManager;
 
+        
        
 
         public MainWindow()
         {
             InitializeComponent();
+            
             _animationManager = new AnimationManager(TransitionContainer);
             ChangeContent(new LoginView(new TransitionControl(this)), AnimationManager.SlideAnimationType.SlideLeft);
         }
@@ -50,6 +53,7 @@ namespace Projekat_HCI.View
         }
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
+            
             WindowState = WindowState.Minimized;
         }
 

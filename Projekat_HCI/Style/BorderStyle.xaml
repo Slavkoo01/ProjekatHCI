@@ -49,6 +49,45 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--MESSAGE BOX-->
+    <Style x:Key="MessageBoxOuterBorderStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="60"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Images/LazarArt2ExtendedFlipped.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MessageBoxBorderStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="50"/>
+        <Setter Property="Opacity" Value="1"/>
+        <Setter Property="BorderThickness" Value="8"/>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                    <GradientStop Color="{StaticResource BlumineC}" Offset="0"/>
+                    <GradientStop Color="{StaticResource JaffaC}" Offset="0.3"/>
+                    <GradientStop Color="{StaticResource JaffaC}" Offset="0.7"/>
+                    <GradientStop Color="{StaticResource MingC}" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                    <GradientStop Color="{StaticResource DarkBlumineC}" Offset="0"/>
+                    <GradientStop Color="{StaticResource DarkMingC}" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect ShadowDepth="0" Color="{StaticResource JaffaC}" Opacity=".35" BlurRadius="20" RenderingBias="Quality" Direction="180"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 
 
 </ResourceDictionary>

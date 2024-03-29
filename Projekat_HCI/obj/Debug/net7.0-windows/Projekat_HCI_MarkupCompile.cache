@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\App.xaml
-211089125258
+21-1931928234
 4518970133
-291930823216
+33-1809791213
 2021720326482
-CustomElements\CustomPasswordBox.xaml;CustomElements\CustomToolBar.xaml;Style\BorderStyle.xaml;Style\Brushes.xaml;Style\ButtonStyle.xaml;Style\CheckBoxStyle.xaml;Style\ComboBoxStyle.xaml;Style\DataGridStyle.xaml;Style\GridStyle.xaml;Style\RichTextBox.xaml;Style\TextBlockStyle.xaml;Style\TextBoxStyle.xaml;Style\ToolBarStyle.xaml;View\AddView.xaml;View\AdminView.xaml;View\EditView.xaml;View\GuestView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\PresentationView.xaml;View\TransitionControl.xaml;
+CustomElements\CustomToolBar.xaml;Style\BorderStyle.xaml;Style\Brushes.xaml;Style\ButtonStyle.xaml;Style\CheckBoxStyle.xaml;Style\ComboBoxStyle.xaml;Style\DataGridStyle.xaml;Style\GridStyle.xaml;Style\RichTextBox.xaml;Style\TextBlockStyle.xaml;Style\TextBoxStyle.xaml;Style\ToolBarStyle.xaml;View\AddView.xaml;View\AdminView.xaml;View\CustomMessageBox.xaml;View\EditView.xaml;View\GuestView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\PresentationView.xaml;View\TransitionControl.xaml;
 
 False
 

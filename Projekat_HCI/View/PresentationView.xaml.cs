@@ -42,10 +42,9 @@ namespace Projekat_HCI.View
             _transitionControl.ParentWindow.ChangeContent(screenOne, AnimationManager.SlideAnimationType.SlideDown);
         }
 
-
-
-
-
-
+        private void PresentationRichTextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

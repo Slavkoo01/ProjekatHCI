@@ -10,6 +10,7 @@ namespace Projekat_HCI.Helper
     public static class GlobalVar
     {
         public static bool IsSaved = false;
+        public static bool Delete = false;
         public static UserRole role = UserRole.Unknown;
         
     }

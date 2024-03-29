@@ -18,7 +18,7 @@
 
         <Setter Property="Foreground" Value="{StaticResource White}"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="FontFamily" Value="montserrat"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
         <Setter Property="FontWeight" Value="Medium"/>
         
             
@@ -31,5 +31,23 @@
             </Trigger>
         </Style.Triggers>
         
+    </Style>
+    <Style x:Key="HyperLinkGuest" TargetType="TextBlock">
+
+        <Setter Property="Foreground" Value="{StaticResource White}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="Foreground" Value="{StaticResource Jaffa}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="ToolTip" Value="Preview"/>
+            </Trigger>
+        </Style.Triggers>
+
     </Style>
 </ResourceDictionary>

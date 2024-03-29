@@ -51,7 +51,7 @@
                             Header="HyperLink"
                             Width="25*">
                             <DataGridHyperlinkColumn.ElementStyle>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource HyperLink}">
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource HyperLinkGuest}">
                                     <EventSetter Event="Hyperlink.Click" Handler="Hyperlink_Click"/>
                                 </Style>
                             </DataGridHyperlinkColumn.ElementStyle>

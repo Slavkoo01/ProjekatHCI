@@ -22,17 +22,18 @@ namespace Projekat_HCI.CustomElements
     /// </summary>
     public partial class CustomToolBar : UserControl
     {
+        
         public RichTextBox RichTextBox { get; set; }
         public CustomToolBar()
         {
             InitializeComponent();
-            
+            DataContext = new CustomToolBarViewModel();
 
             FontFamilyComboBox.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             
             TextColorComboBox.ItemsSource = AddViewModel.ColorList;
-
-            FontSizeComboBox.ItemsSource = Enumerable.Range(1, 48).Select(i => (double)i).ToList();
+            //FontSizeComboBox.ItemsSource = FontSize;
+            //FontSizeComboBox.ItemsSource = Enumerable.Range(1, 48).Select(i => (double)i).ToList();
         }
 
         private void FontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -1,9 +1,12 @@
-﻿using Projekat_HCI.Helper;
+﻿using Notification.Wpf;
+using Projekat_HCI.Helper;
 using Projekat_HCI.PathHandler;
 using Projekat_HCI.Repositories;
 using Projekat_HCI.View;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +15,11 @@ using System.Windows.Media;
 
 namespace Projekat_HCI.ViewModel
 {
-    public class EditViewModel : ViewModelBase
+    public class EditViewModel : ViewModelBase, INotifyDataErrorInfo
     {
         public EditViewModel(BlenderManualViewModel blenderManualViewModel, int index, RichTextBox richTextBox) {
+            _errorViewModel = new ErrorViewModel();
+            _errorViewModel.ErrorsChanged += ErrorViewModel_ErrorsChanged;
             NewId = blenderManualViewModel.Id;
             NewHyperLink = blenderManualViewModel.HyperLink;
             ImagePath = blenderManualViewModel.ImagePath;
@@ -82,6 +87,53 @@ namespace Projekat_HCI.ViewModel
             get { return _colorList; }
             set { _colorList = value; }
         }
+        private ErrorViewModel _errorViewModel;
+       
+        #region ErrorHandling
+        private void ErrorViewModel_ErrorsChanged(object sender, DataErrorsChangedEventArgs e)
+        {
+            ErrorsChanged?.Invoke(this, e);
+        }
+
+        public IEnumerable GetErrors(string propertyName)
+        {
+            return _errorViewModel.GetErrors(propertyName);
+        }
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
+        public bool HasErrors => _errorViewModel.HasErrors;
+
+        private bool Validate()
+        {
+            bool isValid = true;
+            //HYPERLINK VALIDACIJA
+            if (string.IsNullOrWhiteSpace(NewHyperLink))
+            {
+                _errorViewModel.ClearError(nameof(NewHyperLink));
+                _errorViewModel.AddError(nameof(NewHyperLink), "Hyperlink is required.");
+                isValid = false;
+            }
+            else if (NewHyperLink.Length > 25)
+            {
+                _errorViewModel.ClearError(nameof(NewHyperLink));
+                _errorViewModel.AddError(nameof(NewHyperLink), "Hyperlink cannot be longer than 25 characters.");
+                isValid = false;
+            }
+            else
+            {
+                _errorViewModel.ClearError(nameof(NewHyperLink));
+            }
+            if (!isValid)
+            {
+                Toast.ShowToastNotification(new ToastNotification("Error", "Failed to edit an item", NotificationType.Error));
+            }
+
+
+
+            return isValid;
+        }
+
+        #endregion
 
 
         public ViewModelCommands EditCommand => new ViewModelCommands(execute => EditItem());
@@ -96,6 +148,10 @@ namespace Projekat_HCI.ViewModel
 
         private void EditItem()
         {
+            if (!Validate())
+            {
+                return;
+            }
             if (paths != null)
             {
                 MyPath.SaveToImages(paths[0], paths[1]);
@@ -114,6 +170,8 @@ namespace Projekat_HCI.ViewModel
             RTFFiles.SaveRichTextBoxContent(NewId.ToString(), EditRichTextBox);
 
             GlobalVar.IsSaved = false;
+
+            Toast.ShowToastNotification(new ToastNotification("Success", "Sucessfully edited an item", NotificationType.Success));
 
             GoBack();
 

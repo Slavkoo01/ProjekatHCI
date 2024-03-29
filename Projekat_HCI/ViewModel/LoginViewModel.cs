@@ -11,13 +11,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Projekat_HCI.Helper;
+using System.Collections;
+using System.ComponentModel;
 
 namespace Projekat_HCI.ViewModel
 {
-    public class LoginViewModel : ViewModelBase
+    public class LoginViewModel : ViewModelBase, INotifyDataErrorInfo
     {
 
         public static ObservableCollection<UserModel> User = new ObservableCollection<UserModel>();
+        
+        private ErrorViewModel _errorViewModel;
+
+        public LoginViewModel() 
+        {
+            _errorViewModel = new ErrorViewModel();
+            _errorViewModel.ErrorsChanged += ErrorViewModel_ErrorsChanged;
+        }
+        private void ErrorViewModel_ErrorsChanged(object sender, DataErrorsChangedEventArgs e)
+        {
+            ErrorsChanged?.Invoke(this, e);
+            //OnPropertyChanged(nameof(LoginCommand));
+        }
+        
+        public IEnumerable GetErrors(string propertyName)
+        {
+            return _errorViewModel.GetErrors(propertyName);
+        }
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
+
 
         private string _logInPassword;
         public string LogInPassword
@@ -28,6 +51,7 @@ namespace Projekat_HCI.ViewModel
                 if (_logInPassword != value)
                 {
                     _logInPassword = value;
+                    
                     OnPropertyChanged(nameof(LogInPassword));
                 }
             }
@@ -45,9 +69,11 @@ namespace Projekat_HCI.ViewModel
                 }
             }
         }
+
+
         public ViewModelCommands LoginCommand => new ViewModelCommands(execute => Login());
 
-
+        public bool HasErrors => _errorViewModel.HasErrors;
 
         private void Login()
         {

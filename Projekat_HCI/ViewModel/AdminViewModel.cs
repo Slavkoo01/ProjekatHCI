@@ -29,29 +29,42 @@ namespace Projekat_HCI.ViewModel
 
         private void Delete()
         {
-            ObservableCollection<BlenderManualViewModel> temp = new ObservableCollection<BlenderManualViewModel>();
-              for (int i = 0; i < BMData.Count; i++) 
-              {
-                
-                  if (BMData[i].IsChecked)
-                  {
-                      RTFFiles.DeleteRTFFile(BMData[i]);
+            
+            bool anyChecked = BMData.Any(item => item.IsChecked);
+            if (BMData.Count > 0 && anyChecked)
+            {
+                CustomMessageBox MessageBox = new CustomMessageBox();
+                MessageBox.ShowDialog();
 
-                  }
-                  else
-                  {
-                        temp.Add(BMData[i]);
-                  }
-              }
-               BMData.Clear();
-               foreach(var item in temp)
-               {
-                BMData.Add(item);
-               }
-              GlobalVar.IsSaved = false;
-            
-            
+                
+                if (GlobalVar.Delete)
+                {
+                    ObservableCollection<BlenderManualViewModel> temp = new ObservableCollection<BlenderManualViewModel>();
+                    for (int i = 0; i < BMData.Count; i++)
+                    {
+                        if (BMData[i].IsChecked)
+                        {
+                            
+                            RTFFiles.DeleteRTFFile(BMData[i]);
+                            
+                        }
+                        else
+                        {
+                            temp.Add(BMData[i]);
+                        }
+                    }
+                    BMData.Clear();
+                    foreach (var item in temp)
+                    {
+                        BMData.Add(item);
+                    }
+                   
+                    GlobalVar.IsSaved = false;
+                    GlobalVar.Delete = false;
+                }
+            }
         }
+
 
         private void AddItem()
         {

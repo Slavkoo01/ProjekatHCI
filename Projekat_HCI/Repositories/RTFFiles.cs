@@ -10,6 +10,7 @@ using System.Windows;
 using Projekat_HCI.PathHandler;
 using System.Xml.Linq;
 using Projekat_HCI.ViewModel;
+using System.Collections.ObjectModel;
 
 namespace Projekat_HCI.Repositories
 {
@@ -75,3 +76,4 @@ namespace Projekat_HCI.Repositories
 
     }
 }
+

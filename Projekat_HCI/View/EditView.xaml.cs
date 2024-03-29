@@ -1,4 +1,5 @@
-﻿using Projekat_HCI.ViewModel;
+﻿using Projekat_HCI.CustomElements;
+using Projekat_HCI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,12 +69,24 @@ namespace Projekat_HCI.View
 
             object fontItalic = EditViewRichTextBox.Selection.GetPropertyValue(Inline.FontStyleProperty);
             CustomToolBar.ItalicToggleButton.IsChecked = (fontItalic != DependencyProperty.UnsetValue) && (fontItalic.Equals(FontStyles.Italic));
+            
+            object textDecoration = EditViewRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+            CustomToolBar.UnderlineToggleButton.IsChecked = (textDecoration != DependencyProperty.UnsetValue) && (textDecoration.Equals(TextDecorations.Underline));
+            
 
-            object fontUnderline = EditViewRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
-            CustomToolBar.UnderlineToggleButton.IsChecked = (fontUnderline != DependencyProperty.UnsetValue) && (fontUnderline.Equals(TextDecorations.Underline));
 
             object fontSize = EditViewRichTextBox.Selection.GetPropertyValue(Inline.FontSizeProperty);
-            CustomToolBar.FontSizeComboBox.SelectedItem = fontSize;
+            string[] temp = fontSize.ToString().Split('.');
+
+            for(int i = 0; i < CustomToolBarViewModel.FontSizeList.Count; i++){
+                if (CustomToolBarViewModel.FontSizeList[i] == int.Parse(temp[0]))
+                {
+                    CustomToolBar.FontSizeComboBox.SelectedItem = CustomToolBarViewModel.FontSizeList[i];
+                    break;
+                }
+            }
+
+            
 
             object fontColor = EditViewRichTextBox.Selection.GetPropertyValue(Inline.ForegroundProperty);
 
