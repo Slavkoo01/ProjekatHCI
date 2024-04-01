@@ -3,21 +3,21 @@
   <BlenderManualViewModel>
     <Id>1</Id>
     <HyperLink>Blender Introduction</HyperLink>
-    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\Images\BlenderModel1.png</ImagePath>
+    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\ProjekatHCI\Projekat_HCI\Images\BlenderModel1.png</ImagePath>
     <ContentPath>1</ContentPath>
     <DateAdded>2024-03-29T17:34:28.1374673+01:00</DateAdded>
   </BlenderManualViewModel>
   <BlenderManualViewModel>
     <Id>2</Id>
     <HyperLink>Blender ToolBar</HyperLink>
-    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\Images\BlenderModel2.png</ImagePath>
+    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\ProjekatHCI\Projekat_HCI\Images\BlenderModel2.png</ImagePath>
     <ContentPath>2</ContentPath>
     <DateAdded>2024-03-29T16:02:07.0697799+01:00</DateAdded>
   </BlenderManualViewModel>
   <BlenderManualViewModel>
     <Id>3</Id>
     <HyperLink>Blender Tools</HyperLink>
-    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\Projekat_HCI\Images\BlenderMode3.png</ImagePath>
+    <ImagePath>C:\Users\Slavko\Desktop\ProjekatHCI\ProjekatHCI\Projekat_HCI\Images\BlenderMode3.png</ImagePath>
     <ContentPath>3</ContentPath>
     <DateAdded>2024-03-29T17:35:03.2565754+01:00</DateAdded>
   </BlenderManualViewModel>

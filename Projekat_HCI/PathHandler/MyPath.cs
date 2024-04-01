@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
+using Projekat_HCI.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,27 @@ namespace Projekat_HCI.PathHandler
         {
             return Path.Combine(MyDirectoryPath(), "Images");
         } 
+
+        public static void RecalculateImagePath(ObservableCollection<BlenderManualViewModel> BMData)
+        {
+            string[] temp;
+            string newPath;
+            string checkPath = MyImages();
+               foreach(var bm in BMData)
+            {
+                temp = bm.ImagePath.Split('\\');
+                
+                newPath = Path.Combine(checkPath, temp[temp.Length - 1]);
+                bm.ImagePath = newPath;
+                
+            }
+        
+        
+        }
+        
+
+        
+
         public static string MyRTFData()
         {
             return Path.Combine(Path.Combine(MyDirectoryPath(), "Repositories"), "RTFData");

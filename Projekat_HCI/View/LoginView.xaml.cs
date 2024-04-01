@@ -1,6 +1,7 @@
 ﻿using Notification.Wpf;
 using Projekat_HCI.Helper;
 using Projekat_HCI.Model;
+using Projekat_HCI.PathHandler;
 using Projekat_HCI.Repositories;
 using Projekat_HCI.ViewModel;
 using System;
@@ -116,6 +117,11 @@ namespace Projekat_HCI.View
                 Toast.ShowToastNotification(new ToastNotification("Success", "You loged in as administrator", NotificationType.Success));
                 GlobalVar.role = UserRole.Admin;
                 XMLFiles.LoadDataFromXML(UserRole.Admin);
+                if(AdminViewModel.BMData.Count > 0)
+                {
+                    MyPath.RecalculateImagePath(AdminViewModel.BMData);
+                }
+
                 LoginView.LogInAnimationAdmin();
             }
             else if (NewUser.Role == UserRole.Guest)
@@ -123,6 +129,10 @@ namespace Projekat_HCI.View
                 Toast.ShowToastNotification(new ToastNotification("Success", "You loged in as guest", NotificationType.Success));
                 GlobalVar.role = UserRole.Guest;
                 XMLFiles.LoadDataFromXML(UserRole.Guest);
+                if (GuestViewModel.BMData.Count > 0)
+                {
+                    MyPath.RecalculateImagePath(GuestViewModel.BMData);
+                }
                 LoginView.LogInAnimationGuest();
             }
             else
